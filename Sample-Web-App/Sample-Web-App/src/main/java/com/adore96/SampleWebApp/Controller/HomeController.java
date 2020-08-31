@@ -3,6 +3,8 @@ package com.adore96.SampleWebApp.Controller;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -11,15 +13,14 @@ import javax.servlet.http.HttpSession;
 public class HomeController {
 
     @RequestMapping("/home")
-    public String print(HttpServletRequest request){
-        HttpSession httpSession = request.getSession();
+    public ModelAndView print(@RequestParam("name")String name){
 
-        String name = request.getParameter("name");
-        System.out.println("home method called");
-        System.out.println("name  "+name);
+        ModelAndView modelAndView = new ModelAndView();
 
-        httpSession.setAttribute("name",name);
+        modelAndView.addObject("name",name);
 
-        return "HomePage";
+        modelAndView.setViewName("HomePage");
+
+        return modelAndView ;
     }
 }
