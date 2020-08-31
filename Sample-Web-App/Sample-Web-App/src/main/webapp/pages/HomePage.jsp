@@ -5,7 +5,9 @@
 <h1>My First Heading</h1>
 
 <p>My first paragraph.</p>
-<p>${name}</p>
+<p>${obj.id}</p>
+<p>${obj.fname}</p>
+<p>${obj.lname}</p>
 
 </body>
 </html>
