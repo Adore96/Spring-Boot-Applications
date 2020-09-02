@@ -14,13 +14,22 @@
     <input type="submit"><br>
 </form>
 
-<hr><hr>
+<hr><center>Find Student by ID</center><hr>
 
-<form action="Search" method="post">
-    Id: <input type="number" name="id"><br>
+<form action="Search" method="post"><br>
+    Search Id: <input type="number" name="id"><br>
 
     <input type="submit"><br>
 </form>
+
+<hr><center>Find Student by First Name</center><hr>
+
+<form action="fnameSearch" method="post"><br>
+    Search Id: <input type="text" name="fname"><br>
+
+    <input type="submit"><br>
+</form>
+
 
 </body>
 </html>
