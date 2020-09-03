@@ -4,7 +4,7 @@
 
 <h1>Show Fname Search</h1>
 
-${student}
+${users}
 
 
 </body>

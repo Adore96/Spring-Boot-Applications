@@ -4,9 +4,9 @@
 
 <h1>My First Heading</h1>
 
-${student.id}
-${student.fname}
-${student.lname}
+${users.id}
+${users.fname}
+${users.lname}
 
 </body>
 </html>
