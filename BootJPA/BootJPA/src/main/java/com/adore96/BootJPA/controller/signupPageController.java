@@ -43,14 +43,12 @@ public class signupPageController {
 
         ModelAndView mv = new ModelAndView("showfnameStudent.jsp");
         List<Student> student = studentRepo.findByFname(fname);
-
         System.out.println(student);
         return mv;
     }
 
     @RequestMapping("/students")
     @ResponseBody
-    
     public String GetAll() {
         return studentRepo.findAll().toString();
     }
