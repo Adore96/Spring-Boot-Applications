@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html>
 <body>
-
-<h1>My First Heading</h1>
-
-${users}
-
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -299,16 +294,16 @@ ${users}
                 </thead>
 
                 <tbody>
-                <c:forEach var="users" items="${users}">
+                <c:forEach var="dataBean" items="${dataBean}">
                     <tr>
-                        <td><c:out value="${users.id}"/></td>
-                        <td><c:out value="${users.fname}"/></td>
-                        <td><c:out value="${users.lname}"/></td>
-                        <td><c:out value="${users.username}"/></td>
-                        <td><c:out value="${users.telephone}"/></td>
-                        <td><a href="UpdateStudent?username=<c:out value='${users.id}'/>">Edit</a>
+                        <td><c:out value="${dataBean.id}"/></td>
+                        <td><c:out value="${dataBean.fname}"/></td>
+                        <td><c:out value="${dataBean.lname}"/></td>
+                        <td><c:out value="${dataBean.username}"/></td>
+                        <td><c:out value="${dataBean.telephone}"/></td>
+                        <td><a href="UpdateStudent?username=<c:out value='${dataBean.id}'/>">Edit</a>
                             &nbsp;&nbsp;&nbsp;&nbsp;
-                            <a href="DeleteStudent?username=<c:out value='${users.id}'/>">Delete</a></td>
+                            <a href="DeleteStudent?username=<c:out value='${dataBean.id}'/>">Delete</a></td>
                     </tr>
                 </c:forEach>
                 </tbody>
