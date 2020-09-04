@@ -1,21 +1,22 @@
-package com.adore96.BootJPA.model;
+package com.adore96.BootJPA.bean;
 
-import javax.persistence.*;
+import com.adore96.BootJPA.dao.StudentRepo;
+import com.adore96.BootJPA.model.Users;
+import org.springframework.beans.factory.annotation.Autowired;
 
-@Entity
-@Table(name = "users")
-public class Users {
+import java.util.List;
 
-    @Id
-    @GeneratedValue
-    @Column(name = "id",updatable = false)
-    private int id;
+public class DataBean {
 
-    private String fname;
-    private String lname;
-    private String username;
-    private String password;
-    private int telephone;
+    String id,fname,lname,username,password,telephone;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getFname() {
         return fname;
@@ -49,20 +50,11 @@ public class Users {
         this.password = password;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getTelephone() {
+    public String getTelephone() {
         return telephone;
     }
 
-    public void setTelephone(int telephone) {
+    public void setTelephone(String telephone) {
         this.telephone = telephone;
     }
-
 }

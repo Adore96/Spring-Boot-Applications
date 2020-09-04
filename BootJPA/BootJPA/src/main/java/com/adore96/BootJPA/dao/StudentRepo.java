@@ -8,6 +8,7 @@ import java.util.List;
 
 public interface StudentRepo extends JpaRepository<Users,Integer> {
     List<Users> findByFname(String fname);
+    List<Users> deleteByFname(String fname);
 
 
 }

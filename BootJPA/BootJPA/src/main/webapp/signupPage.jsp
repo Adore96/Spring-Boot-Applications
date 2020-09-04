@@ -5,7 +5,7 @@
 <h1>My First Heading</h1>
 
 <form action="Signup" method="post">
-    Id: <input type="number" name="id"><br>
+<%--    Id: <input type="number" name="id"><br>--%>
     First Name:<input type="text" name="fname"><br>
     Last Name: <input type="text" name="lname"><br>
     Username: <input type="text" name="username"><br>
@@ -25,11 +25,18 @@
 <hr><center>Find Student by First Name</center><hr>
 
 <form action="fnameSearch" method="post"><br>
-    Search Id: <input type="text" name="fname"><br>
+    Find Student by First Name: <input type="text" name="fname"><br>
 
     <input type="submit"><br>
 </form>
 
+<hr><center>Delete Student by fname</center><hr>
+
+<form action="Delete" method="post"><br>
+    Delete Student by fname: <input type="text" name="fname"><br>
+
+    <input type="submit"><br>
+</form>
 
 </body>
 </html>
