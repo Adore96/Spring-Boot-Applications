@@ -17,7 +17,7 @@ public class UserlistController {
     @Autowired
     StudentRepo studentRepo;
 
-    @RequestMapping("/userlist")
+    @RequestMapping("/")
     public String getCustomers(Model model) {
 //      ModelAndView mv = new ModelAndView("Dashboard.jsp");
 //      DataBean dataBean = new DataBean();

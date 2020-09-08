@@ -21,11 +21,10 @@ public class SignupPageController {
     @Autowired
     StudentRepo studentRepo;
 
-    @GetMapping("/")
-    public String home() {
-//        System.out.println("Test --> "+studentRepo.getOne(1).getUsername());
-        return "SignupPage.jsp";
-    }
+//    @GetMapping("/")
+//    public String home() {
+////        System.out.println("Test --> "+studentRepo.getOne(1).getUsername());
+
 
     @RequestMapping("/signup")
     public String Signup(Users users) {
@@ -54,13 +53,5 @@ public class SignupPageController {
         return mv;
     }
 
-    @RequestMapping("/delete")
-    public ModelAndView Delete(@RequestParam String fname) {
 
-        System.out.println(fname);
-        ModelAndView mv = new ModelAndView("ShowfnameStudent.jsp");
-//        List<Users> users = studentRepo.findByFname(fname);
-        studentRepo.deleteByFname(fname);
-        return mv;
-    }
 }

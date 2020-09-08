@@ -333,11 +333,12 @@
             <table class="table table-striped table-hover">
                 <thead>
                 <tr>
+                    <th>Id</th>
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Username</th>
                     <th>Mobile</th>
-                    <th>Actions</th>
+                    <th>Role</th>
                 </tr>
                 </thead>
 
@@ -349,6 +350,7 @@
                         <td><c:out value="${dataBean.lname}"/></td>
                         <td><c:out value="${dataBean.username}"/></td>
                         <td><c:out value="${dataBean.telephone}"/></td>
+<%--                        <td><c:out value="${dataBean.telephone}"/></td>--%>
                         <td><a href="UpdateStudent?id=<c:out value='${dataBean.id}'/>">Edit</a>
                             &nbsp;&nbsp;&nbsp;&nbsp;
                             <a href="DeleteStudent?id=<c:out value='${dataBean.id}'/>">Delete</a></td>
