@@ -19,16 +19,17 @@ public class DeleteStudentController{
     StudentRepo studentRepo;
     UserlistController userlistController;
 
-    @RequestMapping("/DeleteStudent")
+    @RequestMapping("/DeleteStudent?id")
     public String Delete(@RequestParam String id) {
 
 
         int Id = Integer.valueOf(id);
-        System.out.println(id);
-        Optional<Users> users = studentRepo.findById(Id);
+        System.out.println(id+"===========================");
+
+//        Optional<Users> users = studentRepo.findById(Id);
 
         studentRepo.deleteById(Id);
-        String redirectURL = "localhost:8090/userlist";
+        String redirectURL = "localhost:8090/";
         return "redirect:" + redirectURL;
     }
 }

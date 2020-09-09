@@ -16,11 +16,6 @@ public class SignupPageController {
     @Autowired
     StudentRepo studentRepo;
 
-//    @GetMapping("/")
-//    public String home() {
-////        System.out.println("Test --> "+studentRepo.getOne(1).getUsername());
-
-
     @RequestMapping("/signup")
     public String Signup(Users users) {
 
@@ -47,7 +42,5 @@ public class SignupPageController {
         System.out.println("----> " + users);
         return mv;
     }
-
-
 
 }

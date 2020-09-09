@@ -11,8 +11,8 @@ public class LogOutController {
     @Autowired
     StudentRepo studentRepo;
 
-    @RequestMapping("/dfsfs")
-    public String check(Model model){
+    @RequestMapping("/logOut")
+    public String main(Model model){
         model.addAttribute("message","Hello ThymeLeaf");
         return "index";
     }

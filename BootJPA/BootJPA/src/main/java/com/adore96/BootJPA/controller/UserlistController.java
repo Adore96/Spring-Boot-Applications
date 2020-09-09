@@ -19,10 +19,7 @@ public class UserlistController {
     StudentRepo studentRepo;
 
     @RequestMapping("/")
-    public String getCustomers(Model model) {
-//      ModelAndView mv = new ModelAndView("Dashboard.jsp");
-//      DataBean dataBean = new DataBean();
-//      Users uclass = new Users();
+    public String main(Model model) {
 
         List<Users> users = studentRepo.findAll();
         List<DataBean> dataBeans = new ArrayList<>();
