@@ -48,11 +48,6 @@ public class SignupPageController {
         return mv;
     }
 
-    @RequestMapping("/")
-    public String gfgdf() {
-
-        return "Dashboard.jsp";
-    }
 
 
 }
