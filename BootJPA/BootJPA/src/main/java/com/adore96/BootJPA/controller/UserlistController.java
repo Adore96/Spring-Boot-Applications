@@ -18,7 +18,7 @@ public class UserlistController {
     @Autowired
     StudentRepo studentRepo;
 
-    @RequestMapping("/adwda")
+    @RequestMapping("/")
     public String getCustomers(Model model) {
 //      ModelAndView mv = new ModelAndView("Dashboard.jsp");
 //      DataBean dataBean = new DataBean();
@@ -40,7 +40,9 @@ public class UserlistController {
         }
 
         model.addAttribute("dataBean", dataBeans);
-        return "Dashboard.jsp";
+        return "index";
+//        String redirectURL = "localhost:8090/userlist";
+//        return "redirect:" + redirectURL;
     }
 }
 
