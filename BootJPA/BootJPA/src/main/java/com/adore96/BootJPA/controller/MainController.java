@@ -5,8 +5,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class MainController {
-    @RequestMapping("/")
+
+    @RequestMapping("/efes")
     public String main(){
-        return "Dashboard.jsp";
+        System.out.println("--------------");
+        return "index";
     }
 }

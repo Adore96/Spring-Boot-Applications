@@ -5,8 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 
-//public class EditStudentController {
-//    @Autowired
-//    StudentRepo studentRepo;
-//
-//}
+public class EditStudentController {
+    @Autowired
+    StudentRepo studentRepo;
+
+}

@@ -5,8 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 
-//public class LogOutController {
-//    @Autowired
-//    StudentRepo studentRepo;
-//
-//}
+public class LogOutController {
+    @Autowired
+    StudentRepo studentRepo;
+
+}
