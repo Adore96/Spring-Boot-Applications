@@ -1,18 +1,13 @@
 package com.adore96.BootJPA.controller;
 
-import com.adore96.BootJPA.bean.DataBean;
 import com.adore96.BootJPA.dao.StudentRepo;
 import com.adore96.BootJPA.model.Users;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -51,6 +46,12 @@ public class SignupPageController {
         List<Users> users = studentRepo.findByFname(fname);
         System.out.println("----> " + users);
         return mv;
+    }
+
+    @RequestMapping("/")
+    public String gfgdf() {
+
+        return "Dashboard.jsp";
     }
 
 
