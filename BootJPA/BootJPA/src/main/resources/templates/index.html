@@ -322,8 +322,8 @@
                         <div class="col-sm-6">
                             <a href="#logoutModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i>
                                 <span>Logout</span></a>
-                            <a href="AddStudent.jsp" class="btn btn-success"><i
-                                    class="material-icons">&#xE147;</i><span>Add New Student</span></a>
+                            <a href="#addNewStudentModal" class="btn btn-success" data-toggle="modal"><i
+                                    class="material-icons"></i><span>Add New Student</span></a>
                         </div>
                     </div>
                 </div>
@@ -340,21 +340,109 @@
                     </thead>
 
                     <tbody>
-                        <tr th:each="dataBean : ${dataBean}">
-                            <td><span th:text="${dataBean.id}"> Title </span></td>
-                            <td><span th:text="${dataBean.fname}"> Author </span></td>
-                            <td><span th:text="${dataBean.lname}"> Title </span></td>
-                            <td><span th:text="${dataBean.username}"> Author </span></td>
-                            <td><span th:text="${dataBean.telephone}"> Title </span></td>
+                    <tr th:each="dataBean : ${dataBean}">
+                        <td><span th:text="${dataBean.id}"> Title </span></td>
+                        <td><span th:text="${dataBean.fname}"> Author </span></td>
+                        <td><span th:text="${dataBean.lname}"> Title </span></td>
+                        <td><span th:text="${dataBean.username}"> Author </span></td>
+                        <td><span th:text="${dataBean.telephone}"> Title </span></td>
 
-                          <td><a th:href="@{/EditStudent/{id}(id=${dataBean.id})}">Edit</a><br>
-                             <a th:href="@{/DeleteStudent/{id}(id=${dataBean.id})}">Delete</a>
-                        </tr>
+                        <td><a th:href="@{/EditStudent/{id}(id=${dataBean.id})}">Edit</a><br>
+                            <a th:href="@{/DeleteStudent/{id}(id=${dataBean.id})}">Delete</a>
+                    </tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 </root>
+
+<!--///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+
+<!--Logout Modal-->
+
+<div id="logoutModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="LogoutDashBoard" method="post">
+                <div class="modal-header">
+                    <h4 class="modal-title">Logout</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to Logout?</p>
+                    <p class="text-warning"><small>This action cannot be undone.</small></p>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                    <input type="submit" class="btn btn-danger" value="Logout">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Modal HTML -->
+<!--<div id="deleteEmployeeModal" class="modal fade">-->
+<!--    <div class="modal-dialog">-->
+<!--        <div class="modal-content">-->
+<!--            <form method="post" action="DeleteUser?username=?">-->
+<!--                <div class="modal-header">-->
+<!--                    <h4 class="modal-title">Delete Student</h4>-->
+<!--                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>-->
+<!--                </div>-->
+<!--                <div class="modal-body">-->
+<!--                    <p>Are you sure you want to delete these Records?</p>-->
+<!--                    <p class="text-warning"><small>This action cannot be undone.</small></p>-->
+<!--                </div>-->
+<!--                <div class="modal-footer">-->
+<!--                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">-->
+<!--                    <input type="submit" class="btn btn-danger" value="Delete">-->
+<!--                </div>-->
+<!--            </form>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!-- Add New Student  -->
+<div id="addNewStudentModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="signup">
+                <div class="modal-header">
+                    <h4 class="modal-title">Add New Student</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" class="form-control" name="fname" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" class="form-control" name="lname" required>
+                    </div>
+                    <div class="form-group">
+                        <label>User Name</label>
+                        <input type="text" class="form-control" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Telephone</label>
+                        <input type="number" class="form-control" name="telephone" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                    <input type="submit" class="btn btn-info">
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
 </body>
 </html>
