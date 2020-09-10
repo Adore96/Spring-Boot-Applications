@@ -30,10 +30,10 @@
 <%--    <input type="submit"><br>--%>
 <%--</form>--%>
 
-<%--<hr><center>Delete Student by fname</center><hr>--%>
+<%--<hr><center>DeleteStudent Student by fname</center><hr>--%>
 
-<%--<form action="Delete" method="post"><br>--%>
-<%--    Delete Student by fname: <input type="text" name="fname"><br>--%>
+<%--<form action="DeleteStudent" method="post"><br>--%>
+<%--    DeleteStudent Student by fname: <input type="text" name="fname"><br>--%>
 
 <%--    <input type="submit"><br>--%>
 <%--</form>--%>

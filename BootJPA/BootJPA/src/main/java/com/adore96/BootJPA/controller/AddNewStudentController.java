@@ -6,8 +6,5 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class AddNewStudentController {
 
-    @RequestMapping("/addStudent")
-    public String main(){
-        return null;
-    }
+
 }
