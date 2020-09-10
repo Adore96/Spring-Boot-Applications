@@ -341,11 +341,11 @@
 
                     <tbody>
                     <tr th:each="dataBean : ${dataBean}">
-                        <td><span th:text="${dataBean.id}"> Title </span></td>
-                        <td><span th:text="${dataBean.fname}"> Author </span></td>
-                        <td><span th:text="${dataBean.lname}"> Title </span></td>
-                        <td><span th:text="${dataBean.username}"> Author </span></td>
-                        <td><span th:text="${dataBean.telephone}"> Title </span></td>
+                        <td><span th:text="${dataBean.id}"></span></td>
+                        <td><span th:text="${dataBean.fname}"></span></td>
+                        <td><span th:text="${dataBean.lname}"></span></td>
+                        <td><span th:text="${dataBean.username}"></span></td>
+                        <td><span th:text="${dataBean.telephone}"></span></td>
 
                         <td><a th:href="@{/EditStudent/{id}(id=${dataBean.id})}">Edit</a><br>
                             <a th:href="@{/DeleteStudent/{id}(id=${dataBean.id})}">Delete</a>

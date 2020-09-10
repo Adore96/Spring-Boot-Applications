@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
+import javax.jws.WebParam;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,7 +46,7 @@ public class MainController {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     @RequestMapping("/EditStudent/{id}")
-    public RedirectView EditStudent(@PathVariable String id) {
+    public String EditStudent(@PathVariable String id, Model model) {
         System.out.println("EditStudent Method");
 
         int Id = Integer.valueOf(id);
@@ -53,10 +54,9 @@ public class MainController {
 
         Users user1 = new Users();
         user1 = studentRepo.getOne(Id);
-        System.out.println(user1.getFname()+"========================");
 
-//        String redirectURL = "localhost:8090/";
-        return new RedirectView("/");
+        model.addAttribute("userdetails",user1);
+        return "userupdate";
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -93,6 +93,16 @@ public class MainController {
 //        String redirectURL = "localhost:8090/";
         return new RedirectView("/");
 
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    @RequestMapping("/updateStudent")
+    public RedirectView updateStudent(Users users) {
+        System.out.println("Calling updateStudent method.");
+        studentRepo.save(users);
+        System.out.println("Data Updated Successfully.");
+        return new RedirectView("/");
     }
 
 }
