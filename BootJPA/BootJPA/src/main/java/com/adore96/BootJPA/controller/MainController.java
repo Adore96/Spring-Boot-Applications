@@ -5,9 +5,6 @@ import com.adore96.BootJPA.dao.StudentRepo;
 import com.adore96.BootJPA.model.Users;
 import com.adore96.BootJPA.securityConfig.BcryptFunction;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +20,18 @@ public class MainController {
 
     @Autowired
     StudentRepo studentRepo;
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    @RequestMapping("/login")
+    public String login() {
+        return "Login";
+    }
+
+    @RequestMapping("/logout-success")
+    public String logout() {
+        return "Login";
+    }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -53,7 +62,7 @@ public class MainController {
         user1 = studentRepo.getOne(Id);
 
         model.addAttribute("userdetails",user1);
-        return "userupdate";
+        return "UserUpdate";
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -77,7 +86,7 @@ public class MainController {
         }
 
         model.addAttribute("dataBean", dataBeans);
-        return "index";
+        return "Index";
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
