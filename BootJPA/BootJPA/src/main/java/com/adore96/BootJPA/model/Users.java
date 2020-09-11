@@ -13,7 +13,17 @@ public class Users {
     private String lname;
     private String username;
     private String password;
+
+    public int getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(int roleId) {
+        this.roleId = roleId;
+    }
+
     private int telephone;
+    private int roleId;
 
     public String getFname() {
         return fname;
