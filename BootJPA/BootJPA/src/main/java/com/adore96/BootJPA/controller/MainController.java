@@ -3,15 +3,18 @@ package com.adore96.BootJPA.controller;
 import com.adore96.BootJPA.bean.DataBean;
 import com.adore96.BootJPA.dao.StudentRepo;
 import com.adore96.BootJPA.model.Users;
-import org.apache.catalina.User;
+import com.adore96.BootJPA.securityConfig.BcryptFunction;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
-import javax.jws.WebParam;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,12 +23,6 @@ public class MainController {
 
     @Autowired
     StudentRepo studentRepo;
-
-    @RequestMapping("/efes")
-    public String main(){
-        System.out.println("--------------");
-        return "index";
-    }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -85,10 +82,24 @@ public class MainController {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    @RequestMapping("/signup")
+    @GetMapping("/signup")
     public RedirectView signup(Users users) {
         System.out.println("Calling signup method.");
-        studentRepo.save(users);
+
+        BcryptFunction bcryptFunction = new BcryptFunction();
+
+        Users users2 = new Users();
+
+        System.out.println(users.getPassword()+"=====================");
+
+        users2.setId(users.getId());
+        users2.setFname(users.getFname());
+        users2.setLname(users.getLname());
+        users2.setUsername(users.getUsername());
+        users2.setPassword(bcryptFunction.encoder().encode(users.getPassword()));
+        users2.setTelephone(users.getTelephone());
+
+        studentRepo.save(users2);
         System.out.println("Data Added Successfully.");
 //        String redirectURL = "localhost:8090/";
         return new RedirectView("/");
@@ -97,7 +108,7 @@ public class MainController {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    @RequestMapping("/updateStudent")
+    @RequestMapping("/EditStudent/updateStudent")
     public RedirectView updateStudent(Users users) {
         System.out.println("Calling updateStudent method.");
         studentRepo.save(users);
