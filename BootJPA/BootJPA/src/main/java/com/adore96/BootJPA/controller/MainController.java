@@ -81,6 +81,7 @@ public class MainController {
             dBean.setUsername(users.get(i).getUsername());
             dBean.setPassword(users.get(i).getPassword());
             dBean.setTelephone(String.valueOf(users.get(i).getTelephone()));
+            dBean.setRoleid(users.get(i).getRoleid());
 
             dataBeans.add(dBean);
         }
@@ -94,12 +95,11 @@ public class MainController {
     @GetMapping("/signup")
     public RedirectView signup(Users users) {
         System.out.println("Calling signup method.");
+        System.out.println("=================="+users.getRoleid());
 
         BcryptFunction bcryptFunction = new BcryptFunction();
 
         Users users2 = new Users();
-
-        System.out.println(users.getPassword()+"=====================");
 
         users2.setId(users.getId());
         users2.setFname(users.getFname());
@@ -108,9 +108,22 @@ public class MainController {
         users2.setPassword(bcryptFunction.encoder().encode(users.getPassword()));
         users2.setTelephone(users.getTelephone());
 
+        String value;
+
+        if (users.getRoleid().equals("Admin")){
+            value = "1";
+            System.out.println(value);
+            users2.setRoleid(value);
+        }else if (users.getRoleid().equals("User")){
+            value="2";
+            System.out.println(value);
+            users2.setRoleid(value);
+        }else {
+            System.out.println("somethin else");
+        }
+
         studentRepo.save(users2);
         System.out.println("Data Added Successfully.");
-//        String redirectURL = "localhost:8090/";
         return new RedirectView("/");
 
     }

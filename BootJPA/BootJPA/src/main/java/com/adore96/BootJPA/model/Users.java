@@ -1,6 +1,7 @@
 package com.adore96.BootJPA.model;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 @Table(name = "users")
@@ -8,22 +9,23 @@ public class Users {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="id")
     private int id;
+
     private String fname;
     private String lname;
     private String username;
     private String password;
-
-    public int getRoleId() {
-        return roleId;
-    }
-
-    public void setRoleId(int roleId) {
-        this.roleId = roleId;
-    }
-
     private int telephone;
-    private int roleId;
+    private String roleid;
+
+    public String getRoleid() {
+        return roleid;
+    }
+
+    public void setRoleid(String roleid) {
+        this.roleid = roleid;
+    }
 
     public String getFname() {
         return fname;
@@ -72,5 +74,6 @@ public class Users {
     public void setTelephone(int telephone) {
         this.telephone = telephone;
     }
+
 
 }

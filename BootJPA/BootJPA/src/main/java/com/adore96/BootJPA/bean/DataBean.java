@@ -1,14 +1,8 @@
 package com.adore96.BootJPA.bean;
 
-import com.adore96.BootJPA.dao.StudentRepo;
-import com.adore96.BootJPA.model.Users;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.List;
-
 public class DataBean {
 
-    String id,fname,lname,username,password,telephone;
+    String id,fname,lname,username,password,telephone,roleid;
 
     public String getId() {
         return id;
@@ -24,6 +18,14 @@ public class DataBean {
 
     public void setFname(String fname) {
         this.fname = fname;
+    }
+
+    public String getRoleid() {
+        return roleid;
+    }
+
+    public void setRoleid(String roleid) {
+        this.roleid = roleid;
     }
 
     public String getLname() {
