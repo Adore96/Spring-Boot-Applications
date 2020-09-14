@@ -7,6 +7,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class UserDetailsService implements org.springframework.security.core.userdetails.UserDetailsService {
 
@@ -14,11 +17,11 @@ public class UserDetailsService implements org.springframework.security.core.use
     private StudentRepo studentRepo;
 
     @Override
-    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        Users users = studentRepo.findByUsername(s);
-        if (users==null){
-            throw new UsernameNotFoundException("user Not Found");
-        }
-        return new UserPrincipal(users);
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        List<Users> users = studentRepo.findByUsername(username);
+
+        if (users == null)
+            throw new UsernameNotFoundException("User 404");
+        return users.map(UserPrincipal::new).get();
     }
 }
