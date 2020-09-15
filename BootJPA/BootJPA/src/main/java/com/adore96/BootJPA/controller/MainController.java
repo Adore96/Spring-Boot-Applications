@@ -99,8 +99,7 @@ public class MainController {
 
     @GetMapping("/signup")
     public RedirectView signup(DataBean dataBean) {
-        System.out.println("Calling signup method.");
-        System.out.println("=================="+dataBean.getRoleid());
+        System.out.println("Calling signup method -> Main Controller.");
 
         BcryptFunction bcryptFunction = new BcryptFunction();
 
