@@ -35,9 +35,9 @@ public class MainController {
         return "Login";
     }
 
-    @RequestMapping("/newStudent")
+    @RequestMapping("/Newuser")
     public String newStudent() {
-        return "NewUser";
+        return "Newuser";
     }
 
     @RequestMapping("/logout-success")
