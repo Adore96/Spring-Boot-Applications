@@ -26,17 +26,21 @@ public class UserPrincipal implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
+//        System.out.println(users.getRoleid());
+
         List<GrantedAuthority> authorities = new ArrayList<>();
         System.out.println("GrantedAuthority--UserPrincipal");
 
-        String role = users.getRoleid();
-        authorities.add(new SimpleGrantedAuthority(roledetails.getRoleid()));
-        System.out.println(new SimpleGrantedAuthority(roledetails.getRolename()));
+        Roledetails role = users.getRoleid();
+        System.out.println("users.getRoleid() -> "+role);
+        authorities.add(new SimpleGrantedAuthority(role.getRolename()));
+//        System.out.println("roledetails.getRolename()) -> "+new SimpleGrantedAuthority(roledetails.getRolename()));
         return authorities;
     }
 
     @Override
     public String getPassword() {
+        System.out.println(users.getPassword());
         return users.getPassword();
     }
 

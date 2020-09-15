@@ -17,13 +17,16 @@ public class Users {
     private String username;
     private String password;
     private int telephone;
-    private String roleid;
 
-    public String getRoleid() {
+    @JoinColumn(name = "roleid", referencedColumnName = "roleid")
+    @ManyToOne(optional = false)
+    private Roledetails roleid;
+
+    public Roledetails getRoleid() {
         return roleid;
     }
 
-    public void setRoleid(String roleid) {
+    public void setRoleid(Roledetails roleid) {
         this.roleid = roleid;
     }
 

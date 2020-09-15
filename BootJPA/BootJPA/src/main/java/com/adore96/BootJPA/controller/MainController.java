@@ -1,7 +1,9 @@
 package com.adore96.BootJPA.controller;
 
 import com.adore96.BootJPA.bean.DataBean;
+import com.adore96.BootJPA.dao.RoledetailsRepo;
 import com.adore96.BootJPA.dao.StudentRepo;
+import com.adore96.BootJPA.model.Roledetails;
 import com.adore96.BootJPA.model.Users;
 import com.adore96.BootJPA.securityConfig.BcryptFunction;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,7 @@ public class MainController {
 
     @Autowired
     StudentRepo studentRepo;
+    RoledetailsRepo roledetailsRepo;
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -72,6 +75,8 @@ public class MainController {
 
         List<Users> users = studentRepo.findAll();
         List<DataBean> dataBeans = new ArrayList<>();
+        List<Roledetails> roledetails = new ArrayList<>();
+
 
         for (int i = 0; i < users.size(); i++) {
             DataBean dBean = new DataBean();
@@ -81,7 +86,7 @@ public class MainController {
             dBean.setUsername(users.get(i).getUsername());
             dBean.setPassword(users.get(i).getPassword());
             dBean.setTelephone(String.valueOf(users.get(i).getTelephone()));
-            dBean.setRoleid(users.get(i).getRoleid());
+//            dBean.setRoleid(roledetails.get(i).getRolename());
 
             dataBeans.add(dBean);
         }
@@ -93,34 +98,35 @@ public class MainController {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     @GetMapping("/signup")
-    public RedirectView signup(Users users) {
+    public RedirectView signup(DataBean dataBean) {
         System.out.println("Calling signup method.");
-        System.out.println("=================="+users.getRoleid());
+        System.out.println("=================="+dataBean.getRoleid());
 
         BcryptFunction bcryptFunction = new BcryptFunction();
 
         Users users2 = new Users();
 
-        users2.setId(users.getId());
-        users2.setFname(users.getFname());
-        users2.setLname(users.getLname());
-        users2.setUsername(users.getUsername());
-        users2.setPassword(bcryptFunction.encoder().encode(users.getPassword()));
-        users2.setTelephone(users.getTelephone());
-
+        users2.setId(Integer.parseInt(dataBean.getId()));
+        users2.setFname(dataBean.getFname());
+        users2.setLname(dataBean.getLname());
+        users2.setUsername(dataBean.getUsername());
+        users2.setPassword(bcryptFunction.encoder().encode(dataBean.getPassword()));
+        users2.setTelephone(Integer.parseInt(dataBean.getTelephone()));
+        Roledetails roleid = roledetailsRepo.getOne(Integer.parseInt(dataBean.getRoleid()));
+        System.out.println(roleid);
         String value;
 
-        if (users.getRoleid().equals("Admin")){
-            value = "1";
-            System.out.println(value);
-            users2.setRoleid(value);
-        }else if (users.getRoleid().equals("User")){
-            value="2";
-            System.out.println(value);
-            users2.setRoleid(value);
-        }else {
-            System.out.println("somethin else");
-        }
+//        if (users.getRoleid().equals("Admin")){
+//            value = "1";
+//            System.out.println(value);
+//            users2.setRoleid(value);
+//        }else if (users.getRoleid().equals("User")){
+//            value="2";
+//            System.out.println(value);
+//            users2.setRoleid(value);
+//        }else {
+//            System.out.println("somethin else");
+//        }
 
         studentRepo.save(users2);
         System.out.println("Data Added Successfully.");

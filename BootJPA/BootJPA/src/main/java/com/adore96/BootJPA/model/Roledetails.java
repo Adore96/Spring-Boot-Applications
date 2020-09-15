@@ -10,8 +10,6 @@ import java.util.Collection;
 @XmlRootElement
 public class Roledetails implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-
     @Id
     @Basic(optional = false)
     @Column(name = "roleid")
@@ -51,7 +49,7 @@ public class Roledetails implements Serializable {
     public Roledetails() {
     }
 
-    public void roledetails(Collection<Users> employeesCollection) {
+    public void roledetails(Collection<Users> usersCollection) {
         this.usersCollection = usersCollection;
     }
 
