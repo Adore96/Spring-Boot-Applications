@@ -42,9 +42,9 @@ public class MainController {
     public RedirectView DeleteStudent(@PathVariable String id) {
         System.out.println("DeleteStudent Method");
 
-        System.out.println(id+"--------------------------------");
+        System.out.println(id + "--------------------------------");
         int Id = Integer.valueOf(id);
-        System.out.println(id+"===========================");
+        System.out.println(id + "===========================");
 
         studentRepo.deleteById(Id);
 
@@ -59,12 +59,12 @@ public class MainController {
         System.out.println("EditStudent Method");
 
         int Id = Integer.valueOf(id);
-        System.out.println(Id+"===========================");
+        System.out.println(Id + "===========================");
 
         Users user1 = new Users();
         user1 = studentRepo.getOne(Id);
 
-        model.addAttribute("userdetails",user1);
+        model.addAttribute("userdetails", user1);
         return "UserUpdate";
     }
 
@@ -75,7 +75,7 @@ public class MainController {
 
         List<Users> users = studentRepo.findAll();
         List<DataBean> dataBeans = new ArrayList<>();
-        List<Roledetails> roledetails = new ArrayList<>();
+
 
 
         for (int i = 0; i < users.size(); i++) {
@@ -86,7 +86,10 @@ public class MainController {
             dBean.setUsername(users.get(i).getUsername());
             dBean.setPassword(users.get(i).getPassword());
             dBean.setTelephone(String.valueOf(users.get(i).getTelephone()));
-//            dBean.setRoleid(roledetails.get(i).getRolename());
+
+            Roledetails roledetails = users.get(i).getRoleid();
+            dBean.setRoleid(roledetails.getRolename());
+//            dBean.setRoleid(String.valueOf(users.get(i).getRoleid()));
 
             dataBeans.add(dBean);
         }
@@ -111,26 +114,14 @@ public class MainController {
         users2.setUsername(dataBean.getUsername());
         users2.setPassword(bcryptFunction.encoder().encode(dataBean.getPassword()));
         users2.setTelephone(Integer.parseInt(dataBean.getTelephone()));
-        Roledetails roleid = roledetailsRepo.getOne(Integer.parseInt(dataBean.getRoleid()));
-        System.out.println(roleid);
-        String value;
 
-//        if (users.getRoleid().equals("Admin")){
-//            value = "1";
-//            System.out.println(value);
-//            users2.setRoleid(value);
-//        }else if (users.getRoleid().equals("User")){
-//            value="2";
-//            System.out.println(value);
-//            users2.setRoleid(value);
-//        }else {
-//            System.out.println("somethin else");
-//        }
+        Roledetails roleid = roledetailsRepo.getOne(Integer.parseInt(dataBean.getRoleid()));
+        System.out.println("/signup Roleid -> " + roleid);
+
 
         studentRepo.save(users2);
         System.out.println("Data Added Successfully.");
         return new RedirectView("/");
-
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -144,4 +135,3 @@ public class MainController {
     }
 
 }
-
