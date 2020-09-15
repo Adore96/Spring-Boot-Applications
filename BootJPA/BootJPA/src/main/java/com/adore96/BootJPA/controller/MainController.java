@@ -11,17 +11,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class MainController {
 
     @Autowired
     StudentRepo studentRepo;
+
+    @Autowired
     RoledetailsRepo roledetailsRepo;
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -29,6 +33,11 @@ public class MainController {
     @RequestMapping("/login")
     public String login() {
         return "Login";
+    }
+
+    @RequestMapping("/newStudent")
+    public String newStudent() {
+        return "NewUser";
     }
 
     @RequestMapping("/logout-success")
@@ -77,7 +86,6 @@ public class MainController {
         List<DataBean> dataBeans = new ArrayList<>();
 
 
-
         for (int i = 0; i < users.size(); i++) {
             DataBean dBean = new DataBean();
             dBean.setId(String.valueOf(users.get(i).getId()));
@@ -89,7 +97,6 @@ public class MainController {
 
             Roledetails roledetails = users.get(i).getRoleid();
             dBean.setRoleid(roledetails.getRolename());
-//            dBean.setRoleid(String.valueOf(users.get(i).getRoleid()));
 
             dataBeans.add(dBean);
         }
@@ -108,14 +115,18 @@ public class MainController {
 
         Users users2 = new Users();
 
-        users2.setId(Integer.parseInt(dataBean.getId()));
+//        users2.setId(Integer.parseInt(dataBean.getId()));
         users2.setFname(dataBean.getFname());
         users2.setLname(dataBean.getLname());
         users2.setUsername(dataBean.getUsername());
         users2.setPassword(bcryptFunction.encoder().encode(dataBean.getPassword()));
         users2.setTelephone(Integer.parseInt(dataBean.getTelephone()));
 
-        Roledetails roleid = roledetailsRepo.getOne(Integer.parseInt(dataBean.getRoleid()));
+        Optional<Roledetails> roleid = roledetailsRepo.findByRoleid(dataBean.getRoleid());
+        if (roleid.isPresent()) {
+            users2.setRoleid(roleid.get());
+        }
+
         System.out.println("/signup Roleid -> " + roleid);
 
 
@@ -134,4 +145,31 @@ public class MainController {
         return new RedirectView("/");
     }
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    @PostMapping("/newStudent")
+    public RedirectView newStudent(DataBean dataBean) {
+
+        System.out.println("Calling newStudent method -> Main Controller.");
+
+        BcryptFunction bcryptFunction = new BcryptFunction();
+
+        Users users2 = new Users();
+
+        users2.setId(Integer.parseInt(dataBean.getId()));
+        users2.setFname(dataBean.getFname());
+        users2.setLname(dataBean.getLname());
+        users2.setUsername(dataBean.getUsername());
+        users2.setPassword(bcryptFunction.encoder().encode(dataBean.getPassword()));
+        users2.setTelephone(Integer.parseInt(dataBean.getTelephone()));
+
+        Roledetails roleid = roledetailsRepo.getOne(Integer.parseInt(dataBean.getRoleid()));
+
+        System.out.println("/signup Roleid -> " + roleid);
+
+
+        studentRepo.save(users2);
+        System.out.println("Data Added Successfully.");
+        return new RedirectView("/");
+    }
 }
