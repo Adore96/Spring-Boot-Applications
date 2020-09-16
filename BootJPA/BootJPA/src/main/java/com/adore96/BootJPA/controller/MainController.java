@@ -9,7 +9,6 @@ import com.adore96.BootJPA.securityConfig.BcryptFunction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -56,13 +55,10 @@ public class MainController {
     public RedirectView DeleteStudent(@PathVariable String id) {
         System.out.println("DeleteStudent Method");
 
-        System.out.println(id + "--------------------------------");
         int Id = Integer.valueOf(id);
-        System.out.println(id + "===========================");
 
         studentRepo.deleteById(Id);
 
-//        String redirectURL = "localhost:8090/";
         return new RedirectView("/");
     }
 
@@ -90,7 +86,6 @@ public class MainController {
         List<Users> users = studentRepo.findAll();
         List<DataBean> dataBeans = new ArrayList<>();
 
-
         for (int i = 0; i < users.size(); i++) {
             DataBean dBean = new DataBean();
             dBean.setId(String.valueOf(users.get(i).getId()));
@@ -112,7 +107,7 @@ public class MainController {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    @GetMapping("/signup")
+    @PostMapping("/signup")
     public RedirectView signup(DataBean dataBean) {
         System.out.println("Calling signup method -> Main Controller.");
         System.out.println(dataBean.getRoleid());
@@ -120,7 +115,6 @@ public class MainController {
 
         Users users2 = new Users();
 
-//        users2.setId(Integer.parseInt(dataBean.getId()));
         users2.setFname(dataBean.getFname());
         users2.setLname(dataBean.getLname());
         users2.setUsername(dataBean.getUsername());
@@ -142,7 +136,7 @@ public class MainController {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    @RequestMapping("/EditStudent/updateStudent")
+    @PostMapping("/EditStudent/updateStudent")
     public RedirectView updateStudent(DataBean dataBean) {
         System.out.println("Calling updateStudent method.");
 
@@ -166,6 +160,4 @@ public class MainController {
         System.out.println("Data Updated Successfully.");
         return new RedirectView("/");
     }
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 }
