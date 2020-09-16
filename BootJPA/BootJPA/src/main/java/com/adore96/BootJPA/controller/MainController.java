@@ -115,7 +115,7 @@ public class MainController {
     @GetMapping("/signup")
     public RedirectView signup(DataBean dataBean) {
         System.out.println("Calling signup method -> Main Controller.");
-
+        System.out.println(dataBean.getRoleid());
         BcryptFunction bcryptFunction = new BcryptFunction();
 
         Users users2 = new Users();
@@ -143,9 +143,26 @@ public class MainController {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     @RequestMapping("/EditStudent/updateStudent")
-    public RedirectView updateStudent(Users users) {
+    public RedirectView updateStudent(DataBean dataBean) {
         System.out.println("Calling updateStudent method.");
-//        studentRepo.save(users);
+
+        Users users2 = new Users();
+
+        users2.setId(Integer.parseInt(dataBean.getId()));
+        users2.setFname(dataBean.getFname());
+        users2.setLname(dataBean.getLname());
+        users2.setUsername(dataBean.getUsername());
+        users2.setPassword(dataBean.getPassword());
+        users2.setTelephone(Integer.parseInt(dataBean.getTelephone()));
+
+        Optional<Roledetails> roleid = roledetailsRepo.findByRoleid(dataBean.getRoleid());
+        if (roleid.isPresent()) {
+            users2.setRoleid(roleid.get());
+        }
+
+        System.out.println("/updateStudent Roleid -> " + roleid.isPresent());
+
+        studentRepo.save(users2);
         System.out.println("Data Updated Successfully.");
         return new RedirectView("/");
     }
