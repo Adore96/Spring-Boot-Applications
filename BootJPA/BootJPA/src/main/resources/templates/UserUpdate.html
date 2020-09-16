@@ -84,13 +84,13 @@
 
 
 <div class="container">
-    <form action="updateStudent" style="border:1px solid #ccc">
+    <form action="updateStudent" method="post" style="border:1px solid #ccc">
         <h3>Update Details</h3>
         <p>Please Update the Details in the form.</p>
         <hr>
 
         <label><b>System Generated ID</b></label>
-        <input th:value="${userdetails.id}" type="number" name="id" readonly>
+        <input th:value="${userdetails.id}" type="hidden" name="id" readonly>
 
         <label><b>First Name</b></label>
         <input th:value="${userdetails.fname}" type="text" placeholder="Enter Email" name="fname" required>
@@ -102,11 +102,18 @@
         <input th:value="${userdetails.username}" type="text" name="username" readonly>
 
         <label><b>Password</b></label>
-        <input th:value="${userdetails.password}" type="password" name="password" readonly>
+        <input th:value="${userdetails.password}" type="hidden" name="password" readonly>
 
         <label><b>Telephone Number</b></label>
         <input th:value="${userdetails.telephone}" type="number" placeholder="Telephone Number" name="telephone"
                required>
+
+        <label for="roleid">Choose a Role:</label>
+        <select name="roleid" id="roleid" >
+            <option >Choose a Role</option>
+            <option value="1">Admin</option>
+            <option value="2">User</option>
+        </select>
 
         <div class="clearfix">
             <button type="button" class="cancelbtn">Cancel</button>

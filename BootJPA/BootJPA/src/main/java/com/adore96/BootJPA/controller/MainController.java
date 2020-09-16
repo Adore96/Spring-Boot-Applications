@@ -35,6 +35,11 @@ public class MainController {
         return "Login";
     }
 
+    @RequestMapping("/403")
+    public String AccessDenied() {
+        return "403";
+    }
+
     @RequestMapping("/Newuser")
     public String newStudent() {
         return "Newuser";
@@ -127,7 +132,7 @@ public class MainController {
             users2.setRoleid(roleid.get());
         }
 
-        System.out.println("/signup Roleid -> " + roleid);
+        System.out.println("/signup Roleid -> " + roleid.isPresent());
 
 
         studentRepo.save(users2);
@@ -140,36 +145,10 @@ public class MainController {
     @RequestMapping("/EditStudent/updateStudent")
     public RedirectView updateStudent(Users users) {
         System.out.println("Calling updateStudent method.");
-        studentRepo.save(users);
+//        studentRepo.save(users);
         System.out.println("Data Updated Successfully.");
         return new RedirectView("/");
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    @PostMapping("/newStudent")
-    public RedirectView newStudent(DataBean dataBean) {
-
-        System.out.println("Calling newStudent method -> Main Controller.");
-
-        BcryptFunction bcryptFunction = new BcryptFunction();
-
-        Users users2 = new Users();
-
-        users2.setId(Integer.parseInt(dataBean.getId()));
-        users2.setFname(dataBean.getFname());
-        users2.setLname(dataBean.getLname());
-        users2.setUsername(dataBean.getUsername());
-        users2.setPassword(bcryptFunction.encoder().encode(dataBean.getPassword()));
-        users2.setTelephone(Integer.parseInt(dataBean.getTelephone()));
-
-        Roledetails roleid = roledetailsRepo.getOne(Integer.parseInt(dataBean.getRoleid()));
-
-        System.out.println("/signup Roleid -> " + roleid);
-
-
-        studentRepo.save(users2);
-        System.out.println("Data Added Successfully.");
-        return new RedirectView("/");
-    }
 }
