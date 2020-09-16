@@ -32,7 +32,7 @@ public class UserPrincipal implements UserDetails {
         System.out.println("GrantedAuthority--UserPrincipal");
 
         Roledetails role = users.getRoleid();
-        System.out.println("users.getRoleid() -> "+role);
+        System.out.println("users.getRoleid() -> " + role);
         authorities.add(new SimpleGrantedAuthority(role.getRolename()));
 //        System.out.println("roledetails.getRolename()) -> "+new SimpleGrantedAuthority(roledetails.getRolename()));
         return authorities;

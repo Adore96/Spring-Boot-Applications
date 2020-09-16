@@ -2,7 +2,7 @@ package com.adore96.BootJPA.bean;
 
 public class DataBean {
 
-    String id,fname,lname,username,password,telephone,roleid;
+    String id, fname, lname, username, password, telephone, roleid;
 
     public String getId() {
         return id;
