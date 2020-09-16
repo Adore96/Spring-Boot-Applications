@@ -51,7 +51,7 @@
 </head>
 <body>
 <center><h1>Login Form.</h1></center>
-<form method="post" action="login">
+<form method="post" th:action="@{/login}">
     <div class="container">
         <label>Username : </label>
         <input type="text" placeholder="Enter Username" name="username" required>
@@ -63,8 +63,8 @@
         <input type="checkbox" checked="checked"> Remember me
         <button type="button" class="cancelbtn"> Cancel</button>
         New User? <a href="#"> Register Here.</a>
-        <button type="button" th:onclick="|window.location.href='/Newuser'|"> Hello</button>
+        <button type="button" th:onclick="|window.location.href='/Newuser'|">Add New User.</button>
     </div>
-</form>
+</form>     
 </body>
 </html>
