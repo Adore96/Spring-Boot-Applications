@@ -5,15 +5,19 @@ import com.adore96.BootJPA.dao.RoledetailsRepo;
 import com.adore96.BootJPA.dao.StudentRepo;
 import com.adore96.BootJPA.model.Roledetails;
 import com.adore96.BootJPA.model.Users;
+import com.adore96.BootJPA.report.ReportService;
 import com.adore96.BootJPA.securityConfig.BcryptFunction;
+import net.sf.jasperreports.engine.JRException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -26,6 +30,9 @@ public class MainController {
 
     @Autowired
     RoledetailsRepo roledetailsRepo;
+
+    @Autowired
+    ReportService reportService;
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -153,4 +160,13 @@ public class MainController {
         System.out.println("Data Updated Successfully.Roleid Presence"+ roleid.isPresent());
         return new RedirectView("/");
     }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    @GetMapping("/report/{format}")
+    public String GenerateReport(@PathVariable String format) throws FileNotFoundException, JRException {
+
+        return reportService.ExportReport(format) ;
+    }
+
 }
