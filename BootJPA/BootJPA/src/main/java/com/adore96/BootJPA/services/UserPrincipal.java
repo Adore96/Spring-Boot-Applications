@@ -20,33 +20,29 @@ public class UserPrincipal implements UserDetails {
 
     public UserPrincipal(Users users) {
         super();
-        System.out.println("UserPrincipal constructor -- UserPrincipal");
         this.users = users;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-//        System.out.println(users.getRoleid());
 
         List<GrantedAuthority> authorities = new ArrayList<>();
-        System.out.println("GrantedAuthority--UserPrincipal");
 
         Roledetails role = users.getRoleid();
-        System.out.println("users.getRoleid() -> " + role);
+        System.out.println("UserPrincipal Class -> users.getRoleid() -> " + role);
         authorities.add(new SimpleGrantedAuthority(role.getRolename()));
-//        System.out.println("roledetails.getRolename()) -> "+new SimpleGrantedAuthority(roledetails.getRolename()));
         return authorities;
     }
 
     @Override
     public String getPassword() {
-        System.out.println(users.getPassword());
+        System.out.println("UserPrincipal Getpassword method --> " + users.getPassword());
         return users.getPassword();
     }
 
     @Override
     public String getUsername() {
-        System.out.println(users.getUsername());
+        System.out.println("UserPrincipal Getusername method --> " + users.getUsername());
         return users.getUsername();
     }
 
