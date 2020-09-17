@@ -53,7 +53,7 @@ public class MainController {
 
     @RequestMapping("/DeleteStudent/{id}")
     public RedirectView DeleteStudent(@PathVariable String id) {
-        System.out.println("DeleteStudent Method");
+        System.out.println("DeleteStudent Method method in Main Controller.");
 
         int Id = Integer.valueOf(id);
 
@@ -66,10 +66,9 @@ public class MainController {
 
     @RequestMapping("/EditStudent/{id}")
     public String EditStudent(@PathVariable String id, Model model) {
-        System.out.println("EditStudent Method");
+        System.out.println("EditStudent Method in Main Controller.");
 
         int Id = Integer.valueOf(id);
-        System.out.println(Id + "===========================");
 
         Users user1 = new Users();
         user1 = studentRepo.getOne(Id);
@@ -109,7 +108,7 @@ public class MainController {
 
     @PostMapping("/signup")
     public RedirectView signup(DataBean dataBean) {
-        System.out.println("Calling signup method -> Main Controller.");
+        System.out.println("Calling signup method in Main Controller.");
         System.out.println(dataBean.getRoleid());
         BcryptFunction bcryptFunction = new BcryptFunction();
 
@@ -126,11 +125,8 @@ public class MainController {
             users2.setRoleid(roleid.get());
         }
 
-        System.out.println("/signup Roleid -> " + roleid.isPresent());
-
-
         studentRepo.save(users2);
-        System.out.println("Data Added Successfully.");
+        System.out.println("Data Added Successfully.Roleid : "+roleid.isPresent());
         return new RedirectView("/");
     }
 
@@ -138,11 +134,10 @@ public class MainController {
 
     @PostMapping("/EditStudent/updateStudent")
     public RedirectView updateStudent(DataBean dataBean) {
-        System.out.println("Calling updateStudent method.");
+        System.out.println("Calling updateStudent method.Roleid : "+dataBean.getRoleid());
 
         Users users2 = new Users();
 
-        users2.setId(Integer.parseInt(dataBean.getId()));
         users2.setFname(dataBean.getFname());
         users2.setLname(dataBean.getLname());
         users2.setUsername(dataBean.getUsername());
@@ -154,10 +149,8 @@ public class MainController {
             users2.setRoleid(roleid.get());
         }
 
-        System.out.println("/updateStudent Roleid -> " + roleid.isPresent());
-
         studentRepo.save(users2);
-        System.out.println("Data Updated Successfully.");
+        System.out.println("Data Updated Successfully.Roleid Presence"+ roleid.isPresent());
         return new RedirectView("/");
     }
 }
