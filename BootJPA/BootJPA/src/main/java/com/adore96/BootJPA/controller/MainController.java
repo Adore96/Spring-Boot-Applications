@@ -87,12 +87,12 @@ public class MainController {
 
         for (int i = 0; i < users.size(); i++) {
             DataBean dBean = new DataBean();
-            dBean.setId(String.valueOf(users.get(i).getId()));
-            dBean.setFname(users.get(i).getFname());
-            dBean.setLname(users.get(i).getLname());
-            dBean.setUsername(users.get(i).getUsername());
-            dBean.setPassword(users.get(i).getPassword());
-            dBean.setTelephone(String.valueOf(users.get(i).getTelephone()));
+            dBean.setId(String.valueOf(users.get(i).getId()).trim());
+            dBean.setFname(users.get(i).getFname().trim());
+            dBean.setLname(users.get(i).getLname().trim());
+            dBean.setUsername(users.get(i).getUsername().trim());
+            dBean.setPassword(users.get(i).getPassword().trim());
+            dBean.setTelephone(String.valueOf(users.get(i).getTelephone()).trim());
 
             Roledetails roledetails = users.get(i).getRoleid();
             dBean.setRoleid(roledetails.getRolename());
@@ -114,13 +114,13 @@ public class MainController {
 
         Users users2 = new Users();
 
-        users2.setFname(dataBean.getFname());
-        users2.setLname(dataBean.getLname());
-        users2.setUsername(dataBean.getUsername());
-        users2.setPassword(bcryptFunction.encoder().encode(dataBean.getPassword()));
-        users2.setTelephone(Integer.parseInt(dataBean.getTelephone()));
+        users2.setFname(dataBean.getFname().trim());
+        users2.setLname(dataBean.getLname().trim());
+        users2.setUsername(dataBean.getUsername().trim());
+        users2.setPassword(bcryptFunction.encoder().encode(dataBean.getPassword()).trim());
+        users2.setTelephone(Integer.parseInt(dataBean.getTelephone().trim()));
 
-        Optional<Roledetails> roleid = roledetailsRepo.findByRoleid(dataBean.getRoleid());
+        Optional<Roledetails> roleid = roledetailsRepo.findByRoleid(dataBean.getRoleid().trim());
         if (roleid.isPresent()) {
             users2.setRoleid(roleid.get());
         }
@@ -138,11 +138,11 @@ public class MainController {
 
         Users users2 = new Users();
 
-        users2.setFname(dataBean.getFname());
-        users2.setLname(dataBean.getLname());
-        users2.setUsername(dataBean.getUsername());
-        users2.setPassword(dataBean.getPassword());
-        users2.setTelephone(Integer.parseInt(dataBean.getTelephone()));
+        users2.setFname(dataBean.getFname().trim());
+        users2.setLname(dataBean.getLname().trim());
+        users2.setUsername(dataBean.getUsername().trim());
+        users2.setPassword(dataBean.getPassword().trim());
+        users2.setTelephone(Integer.parseInt(dataBean.getTelephone().trim()));
 
         Optional<Roledetails> roleid = roledetailsRepo.findByRoleid(dataBean.getRoleid());
         if (roleid.isPresent()) {

@@ -362,8 +362,6 @@
 
 <!--///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
 
-<!--Logout Modal-->
-
 <div id="logoutModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -384,28 +382,6 @@
         </div>
     </div>
 </div>
-
-<!-- Delete Modal HTML -->
-<!--<div id="deleteEmployeeModal" class="modal fade">-->
-<!--    <div class="modal-dialog">-->
-<!--        <div class="modal-content">-->
-<!--            <form method="post" action="DeleteUser?username=?">-->
-<!--                <div class="modal-header">-->
-<!--                    <h4 class="modal-title">Delete Student</h4>-->
-<!--                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>-->
-<!--                </div>-->
-<!--                <div class="modal-body">-->
-<!--                    <p>Are you sure you want to delete these Records?</p>-->
-<!--                    <p class="text-warning"><small>This action cannot be undone.</small></p>-->
-<!--                </div>-->
-<!--                <div class="modal-footer">-->
-<!--                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">-->
-<!--                    <input type="submit" class="btn btn-danger" value="Delete">-->
-<!--                </div>-->
-<!--            </form>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
 
 <!-- Add New Student  -->
 <div id="addNewStudentModal" class="modal fade">
@@ -439,8 +415,8 @@
                     </div>
 
                     <label for="roleid">Choose a Role:</label>
-                    <select name="roleid" id="roleid">
-                        <option>Choose a Role</option>
+                    <select name="roleid" id="roleid" required>
+                        <option value="">Choose a Role</option>
                         <option value="0">Admin</option>
                         <option value="1">User</option>
                     </select>
