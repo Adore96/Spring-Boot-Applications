@@ -27,8 +27,6 @@ public class ReportService {
     public String ExportReport(String reporttype) throws FileNotFoundException, JRException {
         String path = "C:\\Users\\Kasun_k\\Desktop";
 
-//        List<Users> users = studentRepo.findAll();
-
         File file = ResourceUtils.getFile("classpath:UserReport.jrxml");
         JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
 
@@ -50,8 +48,8 @@ public class ReportService {
 
             dataBeans.add(dBean);
         }
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(users);
+
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(dataBeans);
 
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("Created by ", "XYZ");
