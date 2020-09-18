@@ -133,7 +133,7 @@ public class MainController {
         }
 
         studentRepo.save(users2);
-        System.out.println("Data Added Successfully.Roleid : "+roleid.isPresent());
+        System.out.println("Data Added Successfully.Roleid : " + roleid.isPresent());
         return new RedirectView("/");
     }
 
@@ -141,7 +141,7 @@ public class MainController {
 
     @PostMapping("/EditStudent/updateStudent")
     public RedirectView updateStudent(DataBean dataBean) {
-        System.out.println("Calling updateStudent method.Roleid : "+dataBean.getRoleid());
+        System.out.println("Calling updateStudent method.Roleid : " + dataBean.getRoleid());
 
         Users users2 = new Users();
 
@@ -157,16 +157,16 @@ public class MainController {
         }
 
         studentRepo.save(users2);
-        System.out.println("Data Updated Successfully.Roleid Presence"+ roleid.isPresent());
+        System.out.println("Data Updated Successfully.Roleid Presence" + roleid.isPresent());
         return new RedirectView("/");
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    @GetMapping("/report/{format}")
-    public String GenerateReport(@PathVariable String format) throws FileNotFoundException, JRException {
+    @GetMapping("/report")
+    public String GenerateReport() throws FileNotFoundException, JRException {
 
-        return reportService.ExportReport(format) ;
+        return reportService.ExportReport();
     }
 
 }

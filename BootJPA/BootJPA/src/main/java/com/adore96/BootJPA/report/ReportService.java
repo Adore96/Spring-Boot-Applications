@@ -24,8 +24,10 @@ public class ReportService {
     @Autowired
     StudentRepo studentRepo;
 
-    public String ExportReport(String reporttype) throws FileNotFoundException, JRException {
+    public String ExportReport() throws FileNotFoundException, JRException {
+
         String path = "C:\\Users\\Kasun_k\\Desktop";
+        String reporttype = "pdf";
 
         File file = ResourceUtils.getFile("classpath:UserReport.jrxml");
         JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
@@ -54,12 +56,16 @@ public class ReportService {
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("Created by ", "XYZ");
         JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
-        if (reporttype.equalsIgnoreCase("html")) {
-            JasperExportManager.exportReportToHtmlFile(jasperPrint, path + "\\students.html");
-        }
+
+//        if (reporttype.equalsIgnoreCase("html")) {
+//            JasperExportManager.exportReportToHtmlFile(jasperPrint, path + "\\students.html");
+//        }
+
         if (reporttype.equalsIgnoreCase("pdf")) {
-            JasperExportManager.exportReportToPdfFile(jasperPrint, path + "\\students.pdf");
+            JasperExportManager.exportReportToPdfFile(jasperPrint, path + "\\students1.pdf");
+        } else {
+            System.out.println("Report type not defined.");
         }
-        return "Report Generated.";
+        return "/";
     }
 }
