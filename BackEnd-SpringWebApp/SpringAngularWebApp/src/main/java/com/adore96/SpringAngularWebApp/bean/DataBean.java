@@ -8,7 +8,8 @@ public class DataBean {
     private String password;
     private String telephone;
 
-    public DataBean() {}
+    public DataBean() {
+    }
 
     public DataBean(String id, String fname, String lname, String username, String password, String telephone) {
         this.id = id;

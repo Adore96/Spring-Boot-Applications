@@ -1,9 +1,7 @@
 package com.adore96.SpringAngularWebApp.services;
 
 import com.adore96.SpringAngularWebApp.model.Users;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.ArrayList;
@@ -12,7 +10,7 @@ import java.util.List;
 
 public class UserPrincipal implements UserDetails {
 
-    private Users users;
+    private final Users users;
 
     public UserPrincipal(Users users) {
         super();

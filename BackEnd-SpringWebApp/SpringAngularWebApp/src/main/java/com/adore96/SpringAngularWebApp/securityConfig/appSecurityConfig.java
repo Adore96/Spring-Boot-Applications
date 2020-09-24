@@ -17,7 +17,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 @EnableWebSecurity
-public class appSecurityConfig extends WebSecurityConfigurerAdapter  implements WebMvcConfigurer {
+public class appSecurityConfig extends WebSecurityConfigurerAdapter implements WebMvcConfigurer {
 
     @Autowired
     private UserDetailsService userDetailsService;
@@ -28,7 +28,6 @@ public class appSecurityConfig extends WebSecurityConfigurerAdapter  implements 
         daoAuthenticationProvider.setUserDetailsService(userDetailsService);
         daoAuthenticationProvider.setPasswordEncoder(new BCryptPasswordEncoder());
         return daoAuthenticationProvider;
-
     }
 
     @Override
