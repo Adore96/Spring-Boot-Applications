@@ -10,4 +10,5 @@ public class SpringAngularWebAppApplication {
 		SpringApplication.run(SpringAngularWebAppApplication.class, args);
 	}
 
+
 }

@@ -1,7 +1,31 @@
 package com.adore96.SpringAngularWebApp.bean;
 
 public class DataBean {
-    String id, fname, lname, username, password, telephone;
+    private String id;
+    private String fname;
+    private String lname;
+    private String username;
+    private String password;
+    private String telephone;
+
+    public DataBean() {}
+
+    public DataBean(String id, String fname, String lname, String username, String password, String telephone) {
+        this.id = id;
+        this.fname = fname;
+        this.lname = lname;
+        this.username = username;
+        this.password = password;
+        this.telephone = telephone;
+    }
+
+    public DataBean(String fname, String lname, String username, String password, String telephone) {
+        this.fname = fname;
+        this.lname = lname;
+        this.username = username;
+        this.password = password;
+        this.telephone = telephone;
+    }
 
     public String getId() {
         return id;

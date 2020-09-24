@@ -1,6 +1,8 @@
 package com.adore96.SpringAngularWebApp.securityConfig;
 
+import com.adore96.SpringAngularWebApp.filter.RequestHandler;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -10,10 +12,12 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 @EnableWebSecurity
-public class appSecurityConfig extends WebSecurityConfigurerAdapter {
+public class appSecurityConfig extends WebSecurityConfigurerAdapter  implements WebMvcConfigurer {
 
     @Autowired
     private UserDetailsService userDetailsService;
@@ -30,7 +34,7 @@ public class appSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .csrf().disable()
+                .csrf().disable().cors().and()
                 .authorizeRequests().antMatchers("/login").permitAll()
                 .antMatchers("/Newuser").permitAll()
                 .antMatchers("/signup").permitAll()
@@ -50,5 +54,21 @@ public class appSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/login").permitAll();
     }
-}
 
+    @Bean
+    public FilterRegistrationBean<RequestHandler> perfFilter() {
+        FilterRegistrationBean<RequestHandler> registration = new FilterRegistrationBean<>();
+        registration.setFilter(new RequestHandler());
+        registration.addUrlPatterns("/*");
+        return registration;
+    }
+
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/*")
+                .allowedOrigins("*")
+                .allowedMethods("*")
+                .allowedHeaders("*")
+                .allowCredentials(true);
+    }
+}

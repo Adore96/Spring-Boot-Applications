@@ -5,17 +5,16 @@ import com.adore96.SpringAngularWebApp.dao.StudentRepo;
 import com.adore96.SpringAngularWebApp.model.Users;
 import com.adore96.SpringAngularWebApp.securityConfig.BcryptFunction;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Controller
+@RestController
+@CrossOrigin(value = "http://localhost:4200")
 public class MainController {
 
     @Autowired
@@ -100,8 +99,9 @@ public class MainController {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    @PostMapping("/signup")
-    public RedirectView signup(DataBean dataBean) {
+    @PostMapping(value = "/signup", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    //@PostMapping(value = "/signup")
+    public RedirectView signup(@RequestBody DataBean dataBean) {
         System.out.println("Calling signup method in Main Controller.");
         BcryptFunction bcryptFunction = new BcryptFunction();
 
