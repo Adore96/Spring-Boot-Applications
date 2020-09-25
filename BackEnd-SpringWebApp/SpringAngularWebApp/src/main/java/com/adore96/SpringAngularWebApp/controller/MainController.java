@@ -12,6 +12,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin(value = "http://localhost:4200")
@@ -134,5 +135,19 @@ public class MainController {
         studentRepo.save(users2);
 
         return new RedirectView("/");
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    @RequestMapping("/findAllUsers")
+    public List<Users> FindAllUsers() {
+        return studentRepo.findAll();
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    @RequestMapping("/findById/{id}")
+    public Optional<Users> findById(@PathVariable int id) {
+        return studentRepo.findById(id);
     }
 }

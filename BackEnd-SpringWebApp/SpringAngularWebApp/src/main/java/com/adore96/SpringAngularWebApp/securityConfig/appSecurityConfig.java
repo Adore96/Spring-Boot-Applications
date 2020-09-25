@@ -37,6 +37,9 @@ public class appSecurityConfig extends WebSecurityConfigurerAdapter implements W
                 .authorizeRequests().antMatchers("/login").permitAll()
                 .antMatchers("/Newuser").permitAll()
                 .antMatchers("/signup").permitAll()
+                .antMatchers("/findAllUsers").permitAll()
+                .antMatchers("/**").permitAll()
+
 //                .antMatchers("/").hasAnyAuthority("USER", "ADMIN")
 //                .antMatchers("/EditStudent/**").hasAuthority("ADMIN")
 //                .antMatchers("/DeleteStudent/**").hasAuthority("ADMIN")
