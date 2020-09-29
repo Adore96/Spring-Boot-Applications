@@ -48,15 +48,14 @@ public class MainController {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    @RequestMapping("/DeleteStudent/{id}")
-    public RedirectView DeleteStudent(@PathVariable String id) {
+    @DeleteMapping("/DeleteStudent/{id}")
+    public List<Users> DeleteStudent(@PathVariable String id) {
         System.out.println("DeleteStudent Method method in Main Controller.");
 
         int Id = Integer.valueOf(id);
 
         studentRepo.deleteById(Id);
-
-        return new RedirectView("/");
+        return studentRepo.findAll();
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

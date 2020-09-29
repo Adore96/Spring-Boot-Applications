@@ -34,11 +34,11 @@ public class appSecurityConfig extends WebSecurityConfigurerAdapter implements W
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .csrf().disable().cors().and()
-                .authorizeRequests().antMatchers("/login").permitAll()
-                .antMatchers("/Newuser").permitAll()
-                .antMatchers("/signup").permitAll()
-                .antMatchers("/findAllUsers").permitAll()
-                .antMatchers("/**").permitAll()
+                .authorizeRequests().antMatchers("/login","/").permitAll()
+//                .antMatchers("/Newuser").permitAll()
+//                .antMatchers("/signup").permitAll()
+//                .antMatchers("/findAllUsers").permitAll()
+//                .antMatchers("/DeleteStudent/**").permitAll()
 
 //                .antMatchers("/").hasAnyAuthority("USER", "ADMIN")
 //                .antMatchers("/EditStudent/**").hasAuthority("ADMIN")
