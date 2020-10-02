@@ -4,6 +4,8 @@ import com.adore96.SpringAngularWebApp.bean.DataBean;
 import com.adore96.SpringAngularWebApp.dao.StudentRepo;
 import com.adore96.SpringAngularWebApp.model.Users;
 import com.adore96.SpringAngularWebApp.securityConfig.BcryptFunction;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
@@ -17,7 +19,7 @@ import java.util.Optional;
 @RestController
 @CrossOrigin(value = "http://localhost:4200")
 public class MainController {
-
+    private static final Logger logger = LoggerFactory.getLogger(MainController.class);
     @Autowired
     StudentRepo studentRepo;
 
@@ -26,10 +28,11 @@ public class MainController {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    @RequestMapping("/login")
-    public String login() {
-        return "Login";
-    }
+//    @RequestMapping("/login")
+//    public String login() {
+//        logger.info("Accessed Method : Login");
+//        return "Login";
+//    }
 
     @RequestMapping("/403")
     public String AccessDenied() {
@@ -100,7 +103,6 @@ public class MainController {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     @PostMapping(value = "/signup", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    //@PostMapping(value = "/signup")
     public RedirectView signup(@RequestBody DataBean dataBean) {
         System.out.println("Calling signup method in Main Controller.");
         BcryptFunction bcryptFunction = new BcryptFunction();
@@ -146,7 +148,8 @@ public class MainController {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     @RequestMapping("/findById/{id}")
-    public Optional<Users> findById(@PathVariable int id) {
-        return studentRepo.findById(id);
+    public Optional<Users> findById(@PathVariable String id) {
+        int newid = Integer.parseInt(id);
+        return studentRepo.findById(newid);
     }
 }

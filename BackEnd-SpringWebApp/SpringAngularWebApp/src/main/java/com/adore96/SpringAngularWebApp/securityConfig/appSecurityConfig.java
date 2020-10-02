@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -24,6 +25,7 @@ public class appSecurityConfig extends WebSecurityConfigurerAdapter implements W
 
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
+
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
         daoAuthenticationProvider.setUserDetailsService(userDetailsService);
         daoAuthenticationProvider.setPasswordEncoder(new BCryptPasswordEncoder());
@@ -33,16 +35,13 @@ public class appSecurityConfig extends WebSecurityConfigurerAdapter implements W
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .csrf().disable().cors().and()
-                .authorizeRequests().antMatchers("/login","/").permitAll()
-//                .antMatchers("/Newuser").permitAll()
-//                .antMatchers("/signup").permitAll()
-//                .antMatchers("/findAllUsers").permitAll()
-//                .antMatchers("/DeleteStudent/**").permitAll()
-
+                .cors().and()
+                .csrf().disable()
+                .authorizeRequests()
 //                .antMatchers("/").hasAnyAuthority("USER", "ADMIN")
 //                .antMatchers("/EditStudent/**").hasAuthority("ADMIN")
 //                .antMatchers("/DeleteStudent/**").hasAuthority("ADMIN")
+//                .antMatchers("/login").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling().accessDeniedPage("/403")
