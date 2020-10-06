@@ -77,8 +77,8 @@ public class MainController {
 
         int Id = Integer.valueOf(id);
 
-        Users user1 = new Users();
-        user1 = studentRepo.getOne(Id);
+//        Users user1= new Users();
+        Users user1 = studentRepo.getOne(Id);
 
         model.addAttribute("userdetails", user1);
         return "UserUpdate";
