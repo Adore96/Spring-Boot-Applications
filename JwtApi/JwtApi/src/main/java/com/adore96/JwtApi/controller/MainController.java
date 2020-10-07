@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.view.RedirectView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -126,10 +127,11 @@ public class MainController {
         return new RedirectView("/");
     }
 
-//    new method to add from outsidee
-    @PostMapping("/signup")
-    public RedirectView signup(UserDatabean userDatabean) {
-        System.out.println("Calling signup method in Main Controller.");
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    @PostMapping("reguser")
+    public String reguser(UserDatabean userDatabean) {
+        System.out.println("Calling reguser method in Main Controller.");
 
 //        BcryptFunction bcryptFunction = new BcryptFunction();
 
@@ -141,7 +143,13 @@ public class MainController {
 //        users2.setPassword(bcryptFunction.encoder().encode(dataBean.getPassword()).trim());
 
         userRepository.save(users2);
-        return new RedirectView("/");
+        return "Login";
     }
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    @RequestMapping("/login?error")
+    public void Error() {
+        System.out.println("Error");
+    }
 }
