@@ -1,6 +1,7 @@
 package com.adore96.JwtApi.controller;
 
 import com.adore96.JwtApi.bean.UserDatabean;
+import com.adore96.JwtApi.config.BcryptFunction;
 import com.adore96.JwtApi.entity.User;
 import com.adore96.JwtApi.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -104,7 +105,7 @@ public class MainController {
         users2.setUsername(userDatabean.getUsername().trim());
         users2.setEmail(userDatabean.getEmail().trim());
         users2.setPassword(userDatabean.getPassword().trim());
-//        users2.setPassword(bcryptFunction.encoder().encode(dataBean.getPassword()).trim());
+//      users2.setPassword(bcryptFunction.encoder().encode(dataBean.getPassword()).trim());
 
         userRepository.save(users2);
         return new RedirectView("/");
@@ -129,18 +130,17 @@ public class MainController {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    @PostMapping("reguser")
+    @PostMapping("/reguser")
     public String reguser(UserDatabean userDatabean) {
         System.out.println("Calling reguser method in Main Controller.");
 
-//        BcryptFunction bcryptFunction = new BcryptFunction();
+        BcryptFunction bcryptFunction = new BcryptFunction();
 
         User users2 = new User();
 
         users2.setUsername(userDatabean.getUsername().trim());
         users2.setEmail(userDatabean.getEmail().trim());
-        users2.setPassword(userDatabean.getPassword().trim());
-//        users2.setPassword(bcryptFunction.encoder().encode(dataBean.getPassword()).trim());
+        users2.setPassword(bcryptFunction.encoder().encode(userDatabean.getPassword()).trim());
 
         userRepository.save(users2);
         return "Login";
