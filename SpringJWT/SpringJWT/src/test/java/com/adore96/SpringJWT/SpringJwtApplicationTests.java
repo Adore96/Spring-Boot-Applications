@@ -1,10 +1,10 @@
-package com.adore96.BootJPA;
+package com.adore96.SpringJWT;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class BootJpaApplicationTests {
+class SpringJwtApplicationTests {
 
 	@Test
 	void contextLoads() {

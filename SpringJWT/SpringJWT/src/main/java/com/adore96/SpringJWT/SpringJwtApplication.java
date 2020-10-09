@@ -1,13 +1,13 @@
-package com.adore96.BootJPA;
+package com.adore96.SpringJWT;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BootJpaApplication {
+public class SpringJwtApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BootJpaApplication.class, args);
+		SpringApplication.run(SpringJwtApplication.class, args);
 	}
 
 }
