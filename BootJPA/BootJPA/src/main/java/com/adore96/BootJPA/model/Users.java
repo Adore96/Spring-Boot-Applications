@@ -1,7 +1,6 @@
 package com.adore96.BootJPA.model;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @Entity
 @Table(name = "users")
