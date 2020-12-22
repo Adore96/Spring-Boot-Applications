@@ -1,34 +1,24 @@
-package com.adore96.SpringJWT.model;
-
-import javax.persistence.*;
+package com.adore96.SpringJWT.bean;
 
 /**
  * @author kalharaperera ON 12/22/20
  * @project SpringJWT
  */
 
-@Entity
-@Table(name = "users")
-public class users {
+public class usersDataBean {
 
-    @Id
-    @Column(name = "userID")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int userId;
-
+    private String userId;
     private String fname;
     private String lname;
     private String username;
     private String password;
-
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private String createdTime;
 
-    public int getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
