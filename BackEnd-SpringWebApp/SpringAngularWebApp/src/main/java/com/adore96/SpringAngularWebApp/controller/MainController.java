@@ -28,12 +28,6 @@ public class MainController {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//    @RequestMapping("/login")
-//    public String login() {
-//        logger.info("Accessed Method : Login");
-//        return "Login";
-//    }
-
     @RequestMapping("/403")
     public String AccessDenied() {
         return "403";
