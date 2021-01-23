@@ -10,11 +10,11 @@ import org.springframework.stereotype.Service;
  * @project SpringJWT
  */
 
-@Service
-public class bCryptFunction {
-
-    @Bean
-    public PasswordEncoder encoder(){
-        return new BCryptPasswordEncoder();
-    }
-}
+//@Service
+//public class bCryptFunction {
+//
+//    @Bean
+//    public PasswordEncoder encoder(){
+//        return new BCryptPasswordEncoder();
+//    }
+//}
