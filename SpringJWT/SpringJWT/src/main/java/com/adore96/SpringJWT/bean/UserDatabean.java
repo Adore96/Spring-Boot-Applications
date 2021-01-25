@@ -1,18 +1,26 @@
 package com.adore96.SpringJWT.bean;
 
 /**
- * @author kalharaperera ON 12/22/20
+ * @author kasun_k ON 12/22/20
  * @project SpringJWT
  */
 
-public class usersDataBean {
+public class UserDatabean {
 
     private String userId;
     private String fname;
     private String lname;
     private String username;
     private String password;
-    private String createdTime;
+    private int roleid;
+
+    public int getRoleid() {
+        return roleid;
+    }
+
+    public void setRoleid(int roleid) {
+        this.roleid = roleid;
+    }
 
     public String getUserId() {
         return userId;
@@ -52,13 +60,5 @@ public class usersDataBean {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getCreatedTime() {
-        return createdTime;
-    }
-
-    public void setCreatedTime(String createdTime) {
-        this.createdTime = createdTime;
     }
 }

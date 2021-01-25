@@ -1,6 +1,6 @@
 package com.adore96.SpringJWT.services;
 
-import com.adore96.SpringJWT.model.users;
+import com.adore96.SpringJWT.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -8,18 +8,18 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 
 /**
- * @author kalharaperera ON 12/22/20
+ * @author kasun_k ON 12/22/20
  * @project SpringJWT
  */
 
-public class userPrincipal implements UserDetails {
+public class UserPrincipal implements UserDetails {
 
     @Autowired
-    private users users;
+    private User User;
 
-    public userPrincipal(users users) {
+    public UserPrincipal(User User) {
         super();
-        this.users = users;
+        this.User = User;
     }
 
     @Override
@@ -29,8 +29,8 @@ public class userPrincipal implements UserDetails {
 
     @Override
     public String getPassword() {
-        System.out.println("UserPrincipal Getpassword method --> " + users.getPassword());
-        return users.getPassword();
+        System.out.println("UserPrincipal Getpassword method --> " + User.getPassword());
+        return User.getPassword();
     }
 
     @Override
