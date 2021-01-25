@@ -20,6 +20,15 @@ public class User {
     private String lname;
     private String username;
     private String password;
+    private int roleid;
+
+    public int getRoleid() {
+        return roleid;
+    }
+
+    public void setRoleid(int roleid) {
+        this.roleid = roleid;
+    }
 
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String createdTime;

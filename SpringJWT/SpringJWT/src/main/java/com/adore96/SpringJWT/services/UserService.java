@@ -17,7 +17,7 @@ public class UserService {
     @Autowired
     UserRepo userRepo;
 
-    public String signUp(UserDatabean userDatabean) {
+    public void signUp(UserDatabean userDatabean) {
         User user = new User();
 
         user.setFname(userDatabean.getFname());
@@ -25,10 +25,8 @@ public class UserService {
         user.setUsername(userDatabean.getUsername());
         user.setUsername(userDatabean.getUsername());
         user.setPassword(userDatabean.getPassword());
-        user.setUserId(userDatabean.getRoleid());
+        user.setRoleid(userDatabean.getRoleid());
 
         userRepo.save(user);
-
-        return "success";
     }
 }
