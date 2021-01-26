@@ -1,5 +1,6 @@
 package com.adore96.SpringJWT.services;
 
+import com.adore96.SpringJWT.bean.AuditDatabean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Configuration
 public class AuditService {
 
-    public void saveAudit(){
-
+    public void saveAudit(AuditDatabean auditDatabean){
+        
     }
 }

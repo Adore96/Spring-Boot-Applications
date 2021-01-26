@@ -21,6 +21,15 @@ public class User {
     private String username;
     private String password;
     private int roleid;
+    private int timeStamp;
+
+    public int getTimeStamp() {
+        return timeStamp;
+    }
+
+    public void setTimeStamp(int timeStamp) {
+        this.timeStamp = timeStamp;
+    }
 
     public int getRoleid() {
         return roleid;

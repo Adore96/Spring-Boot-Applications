@@ -12,7 +12,16 @@ public class UserDatabean {
     private String lname;
     private String username;
     private String password;
+    private int timeStamp;
     private int roleid;
+
+    public int getTimeStamp() {
+        return timeStamp;
+    }
+
+    public void setTimeStamp(int timeStamp) {
+        this.timeStamp = timeStamp;
+    }
 
     public int getRoleid() {
         return roleid;
