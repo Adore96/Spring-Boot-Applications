@@ -1,6 +1,7 @@
 package com.adore96.SpringJWT.services;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * @author kasun_k ON 1/25/21
@@ -9,4 +10,8 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class AuditService {
+
+    public void saveAudit(){
+
+    }
 }
