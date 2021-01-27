@@ -320,13 +320,13 @@
                             <h2>Manage <b>Students</b></h2>
                         </div>
                         <div class="col-sm-8">
-                            <a class="btn btn-warning" data-toggle="modal" href="#"
+                            <a href="#" class="btn btn-warning" data-toggle="modal"
                                th:onclick="|window.location.href='/report'|"><i
                                     class="material-icons">cloud_download</i>
                                 <span>Download Report</span></a>
-                            <a class="btn btn-danger" data-toggle="modal" href="#logoutModal"><i class="material-icons">&#xE15C;</i>
+                            <a href="#logoutModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i>
                                 <span>Logout</span></a>
-                            <a class="btn btn-success" data-toggle="modal" href="#addNewStudentModal"><i
+                            <a href="#addNewStudentModal" class="btn btn-success" data-toggle="modal"><i
                                     class="material-icons">add_circle</i><span>Add New Student</span></a>
                         </div>
                     </div>
@@ -339,20 +339,18 @@
                         <th>Last Name</th>
                         <th>Username</th>
                         <th>Mobile</th>
-                        <th>Role id</th>
-                        <th>Created Time</th>
+                        <th>Role</th>
                     </tr>
                     </thead>
 
                     <tbody>
-                    <tr th:each="userDatabeans :${userDatabeans}">
-                        <td><span th:text="${userDatabeans.id}"></span></td>
-                        <td><span th:text="${userDatabeans.fname}"></span></td>
-                        <td><span th:text="${userDatabeans.lname}"></span></td>
-                        <td><span th:text="${userDatabeans.username}"></span></td>
-                        <td><span th:text="${userDatabeans.telephone}"></span></td>
-                        <td><span th:text="${userDatabeans.roleid}"></span></td>
-                        <td><span th:text="${userDatabeans.roleid}"></span></td>
+                    <tr th:each="dataBean : ${dataBean}">
+                        <td><span th:text="${dataBean.id}"></span></td>
+                        <td><span th:text="${dataBean.fname}"></span></td>
+                        <td><span th:text="${dataBean.lname}"></span></td>
+                        <td><span th:text="${dataBean.username}"></span></td>
+                        <td><span th:text="${dataBean.telephone}"></span></td>
+                        <td><span th:text="${dataBean.roleid}"></span></td>
 
                         <td><a th:href="@{/EditStudent/{id}(id=${dataBean.id})}">Edit</a><br>
                             <a th:href="@{/DeleteStudent/{id}(id=${dataBean.id})}">Delete</a>
@@ -363,7 +361,6 @@
         </div>
     </div>
 </root>
-
 <!----------------------------------------------------- Logout Modal ----------------------------------------------------------->
 
 <div class="modal fade" id="logoutModal">

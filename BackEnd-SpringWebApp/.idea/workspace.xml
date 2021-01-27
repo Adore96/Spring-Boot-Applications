@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fe9d569d-a34e-4d93-9616-fff7a5c97ecc" name="Default Changelist" comment="" />
+    <list default="true" id="fe9d569d-a34e-4d93-9616-fff7a5c97ecc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../SpringJWT/SpringJWT/src/main/java/com/adore96/SpringJWT/services/UserDetailsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringJWT/SpringJWT/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringJWT/SpringJWT/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringJWT/SpringJWT/src/main/java/com/adore96/SpringJWT/controller/CommonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringJWT/SpringJWT/src/main/java/com/adore96/SpringJWT/controller/CommonController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringJWT/SpringJWT/src/main/java/com/adore96/SpringJWT/repository/UserRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringJWT/SpringJWT/src/main/java/com/adore96/SpringJWT/repository/UserRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringJWT/SpringJWT/src/main/java/com/adore96/SpringJWT/securityConfig/appSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringJWT/SpringJWT/src/main/java/com/adore96/SpringJWT/securityConfig/appSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringJWT/SpringJWT/src/main/java/com/adore96/SpringJWT/securityConfig/bCryptFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringJWT/SpringJWT/src/main/java/com/adore96/SpringJWT/securityConfig/bCryptFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringJWT/SpringJWT/src/main/java/com/adore96/SpringJWT/services/UserPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringJWT/SpringJWT/src/main/java/com/adore96/SpringJWT/services/UserPrincipal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringJWT/SpringJWT/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringJWT/SpringJWT/src/main/resources/templates/index.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,6 +48,7 @@
       <updated>1609161045971</updated>
       <workItem from="1609161047220" duration="8000" />
       <workItem from="1609780377468" duration="100000" />
+      <workItem from="1611736747018" duration="769000" />
     </task>
     <servers />
   </component>
