@@ -14,6 +14,15 @@ public class UserDatabean {
     private String password;
     private int timeStamp;
     private int roleid;
+    private int telephone;
+
+    public int getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(int telephone) {
+        this.telephone = telephone;
+    }
 
     public int getTimeStamp() {
         return timeStamp;

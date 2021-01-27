@@ -339,21 +339,22 @@
                         <th>Last Name</th>
                         <th>Username</th>
                         <th>Mobile</th>
-                        <th>Role</th>
+                        <th>Role Id</th>
+                        <th>Actions</th>
                     </tr>
                     </thead>
 
                     <tbody>
-                    <tr th:each="dataBean : ${dataBean}">
-                        <td><span th:text="${dataBean.id}"></span></td>
-                        <td><span th:text="${dataBean.fname}"></span></td>
-                        <td><span th:text="${dataBean.lname}"></span></td>
-                        <td><span th:text="${dataBean.username}"></span></td>
-                        <td><span th:text="${dataBean.telephone}"></span></td>
-                        <td><span th:text="${dataBean.roleid}"></span></td>
+                    <tr th:each="Databean : ${Databean}">
+                        <td><span th:text="${Databean.userId}"></span></td>
+                        <td><span th:text="${Databean.fname}"></span></td>
+                        <td><span th:text="${Databean.lname}"></span></td>
+                        <td><span th:text="${Databean.username}"></span></td>
+<!--                        <td><span th:text="${Databean.telephone}"></span></td>-->
+                        <td><span th:text="${Databean.roleid}"></span></td>
 
-                        <td><a th:href="@{/EditStudent/{id}(id=${dataBean.id})}">Edit</a><br>
-                            <a th:href="@{/DeleteStudent/{id}(id=${dataBean.id})}">Delete</a>
+                        <td><a th:href="@{/EditStudent/{id}(id=${Databean.userId})}">Edit</a><br>
+                            <a th:href="@{/DeleteStudent/{id}(id=${Databean.userId})}">Delete</a>
                     </tr>
                     </tbody>
                 </table>

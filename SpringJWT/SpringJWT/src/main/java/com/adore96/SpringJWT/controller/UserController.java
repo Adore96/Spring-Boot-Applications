@@ -1,6 +1,7 @@
 package com.adore96.SpringJWT.controller;
 
 import com.adore96.SpringJWT.bean.UserDatabean;
+import com.adore96.SpringJWT.services.AuditService;
 import com.adore96.SpringJWT.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,9 @@ public class UserController {
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    AuditService auditService;
 
     @PostMapping("/signup")
     public RedirectView signup(UserDatabean userDatabean) {

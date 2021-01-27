@@ -20,8 +20,17 @@ public class User {
     private String lname;
     private String username;
     private String password;
+    private int telephone;
     private int roleid;
     private int timeStamp;
+
+    public int getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(int telephone) {
+        this.telephone = telephone;
+    }
 
     public int getTimeStamp() {
         return timeStamp;

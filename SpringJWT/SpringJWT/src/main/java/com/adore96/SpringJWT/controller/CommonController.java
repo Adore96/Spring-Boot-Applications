@@ -1,8 +1,10 @@
 package com.adore96.SpringJWT.controller;
 
 import com.adore96.SpringJWT.bean.UserDatabean;
+import com.adore96.SpringJWT.model.Audit;
 import com.adore96.SpringJWT.model.User;
 import com.adore96.SpringJWT.repository.UserRepo;
+import com.adore96.SpringJWT.services.AuditService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,9 +24,12 @@ public class CommonController {
     @Autowired
     UserRepo userRepo;
 
+    @Autowired
+    AuditService auditService;
+
     @RequestMapping("/")
     public String main(Model model) {
-
+        System.out.println("-------");
         List<User> user = userRepo.findAll();
         List<UserDatabean> Databean = new ArrayList<>();
 
@@ -37,6 +42,7 @@ public class CommonController {
             dBean.setRoleid(user.get(i).getRoleid());
             dBean.setTimeStamp(user.get(i).getTimeStamp());
 
+
 //            Roledetails roledetails = user.get(i).getRoleid();
 //            dBean.setRoleid(roledetails.getRolename());
 
@@ -47,7 +53,7 @@ public class CommonController {
         return "Index";
     }
 
-    @RequestMapping("/loginn")
+    @RequestMapping("/login")
     public String login() {
         return "login";
     }
