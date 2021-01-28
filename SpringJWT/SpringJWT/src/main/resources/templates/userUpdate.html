@@ -84,13 +84,13 @@
 
 
 <div class="container">
-    <form action="updateStudent" method="post" style="border:1px solid #ccc">
+    <form action="updateUser" method="post" style="border:1px solid #ccc">
         <h3>Update Details</h3>
         <p>Please Update the Details in the form.</p>
         <hr>
 
         <label><b>System Generated ID</b></label>
-        <input name="id" readonly th:value="${userdetails.id}" type="hidden">
+        <input name="id" readonly th:value="${userdetails.userId}" type="text">
 
         <label><b>First Name</b></label>
         <input name="fname" placeholder="Enter Email" required th:value="${userdetails.fname}" type="text">

@@ -1,6 +1,8 @@
 package com.adore96.SpringJWT.controller;
 
 import com.adore96.SpringJWT.bean.UserDatabean;
+import com.adore96.SpringJWT.model.User;
+import com.adore96.SpringJWT.repository.UserRepo;
 import com.adore96.SpringJWT.services.AuditService;
 import com.adore96.SpringJWT.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.view.RedirectView;
+
+import java.util.Optional;
 
 /**
  * @author kasun_k ON 1/25/21
@@ -25,6 +29,9 @@ public class UserController {
     @Autowired
     AuditService auditService;
 
+    @Autowired
+    UserRepo userRepo;
+
     @PostMapping("/signup")
     public RedirectView signup(UserDatabean userDatabean) {
         System.out.println("Called Signup");
@@ -33,16 +40,37 @@ public class UserController {
         return new RedirectView("/");
     }
 
-    @RequestMapping("/EditStudent/{id}")
+    @RequestMapping("/editUser/{id}")
     public String EditStudent(@PathVariable String id, Model model) {
-        System.out.println("EditStudent Method in Main Controller.");
+        System.out.println("editUser Method in UserController.");
 
         int Id = Integer.valueOf(id);
 
-//        Users user1= new Users();
-        Users user1 = studentRepo.getOne(Id);
+        User user = userRepo.getOne(Id);
 
-        model.addAttribute("userdetails", user1);
-        return "UserUpdate";
+        model.addAttribute("userdetails", user);
+        return "userUpdate";
+    }
+
+    @PostMapping("/editUser/updateUser")
+    public RedirectView updateStudent(UserDatabean userDatabean) {
+        System.out.println("Calling updateUser method.Roleid : " + userDatabean.getUsername());
+
+        User user = new User();
+
+        user.setFname(userDatabean.getFname().trim());
+        user.setLname(userDatabean.getLname().trim());
+        user.setUsername(userDatabean.getUsername().trim());
+        user.setPassword(userDatabean.getPassword().trim());
+        user.setTelephone(userDatabean.getTelephone());
+
+//        Optional<Roledetails> roleid = roledetailsRepo.findByRoleid(userDatabean.getRoleid());
+//        if (roleid.isPresent()) {
+//            users2.setRoleid(roleid.get());
+//        }
+
+        userRepo.save(user);
+//        System.out.println("Data Updated Successfully.Roleid Presence" + roleid.isPresent());
+        return new RedirectView("/");
     }
 }
