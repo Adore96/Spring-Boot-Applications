@@ -339,6 +339,7 @@
                         <th>Last Name</th>
                         <th>Username</th>
                         <th>Mobile</th>
+                        <th>Created Time</th>
                         <th>Role Id</th>
                         <th>Actions</th>
                     </tr>
@@ -350,11 +351,12 @@
                         <td><span th:text="${Databean.fname}"></span></td>
                         <td><span th:text="${Databean.lname}"></span></td>
                         <td><span th:text="${Databean.username}"></span></td>
-<!--                        <td><span th:text="${Databean.telephone}"></span></td>-->
+                        <td><span th:text="${Databean.timeStamp}"></span></td>
+                        <td><span th:text="${Databean.telephone}"></span></td>
                         <td><span th:text="${Databean.roleid}"></span></td>
 
-                        <td><a th:href="@{/EditStudent/{id}(id=${Databean.userId})}">Edit</a><br>
-                            <a th:href="@{/DeleteStudent/{id}(id=${Databean.userId})}">Delete</a>
+                        <td><a th:href="@{/editUser/{id}(id=${Databean.userId})}">Edit</a><br>
+                            <a th:href="@{/deleteUser/{id}(id=${Databean.userId})}">Delete</a>
                     </tr>
                     </tbody>
                 </table>

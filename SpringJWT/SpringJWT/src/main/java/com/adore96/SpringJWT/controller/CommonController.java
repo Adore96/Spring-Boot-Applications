@@ -41,6 +41,7 @@ public class CommonController {
             dBean.setUsername(user.get(i).getUsername().trim());
             dBean.setRoleid(user.get(i).getRoleid());
             dBean.setTimeStamp(user.get(i).getTimeStamp());
+            dBean.setTelephone(user.get(i).getTelephone());
 
 
 //            Roledetails roledetails = user.get(i).getRoleid();

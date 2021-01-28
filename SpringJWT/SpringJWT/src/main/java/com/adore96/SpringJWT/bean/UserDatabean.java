@@ -1,5 +1,7 @@
 package com.adore96.SpringJWT.bean;
 
+import java.sql.Timestamp;
+
 /**
  * @author kasun_k ON 12/22/20
  * @project SpringJWT
@@ -12,7 +14,7 @@ public class UserDatabean {
     private String lname;
     private String username;
     private String password;
-    private int timeStamp;
+    private String timeStamp;
     private int roleid;
     private int telephone;
 
@@ -24,11 +26,11 @@ public class UserDatabean {
         this.telephone = telephone;
     }
 
-    public int getTimeStamp() {
+    public String getTimeStamp() {
         return timeStamp;
     }
 
-    public void setTimeStamp(int timeStamp) {
+    public void setTimeStamp(String timeStamp) {
         this.timeStamp = timeStamp;
     }
 

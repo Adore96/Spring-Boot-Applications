@@ -1,6 +1,7 @@
 package com.adore96.SpringJWT.model;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 
 /**
  * @author kalharaperera ON 12/22/20
@@ -22,7 +23,7 @@ public class User {
     private String password;
     private int telephone;
     private int roleid;
-    private int timeStamp;
+    private String timeStamp;
 
     public int getTelephone() {
         return telephone;
@@ -32,11 +33,11 @@ public class User {
         this.telephone = telephone;
     }
 
-    public int getTimeStamp() {
+    public String getTimeStamp() {
         return timeStamp;
     }
 
-    public void setTimeStamp(int timeStamp) {
+    public void setTimeStamp(String timeStamp) {
         this.timeStamp = timeStamp;
     }
 
