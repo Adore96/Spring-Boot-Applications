@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
-import java.util.Optional;
-
 /**
  * @author kasun_k ON 1/25/21
  * @project SpringJWT
@@ -52,7 +50,7 @@ public class UserController {
         return "userUpdate";
     }
 
-    @PostMapping("/editUser/updateUser")
+    @RequestMapping("editUser/updateUser")
     public RedirectView updateStudent(UserDatabean userDatabean) {
         System.out.println("Calling updateUser method.Roleid : " + userDatabean.getUsername());
 
