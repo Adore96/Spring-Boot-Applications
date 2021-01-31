@@ -50,7 +50,7 @@ public class UserController {
         return "userUpdate";
     }
 
-    @RequestMapping("editUser/updateUser")
+    @RequestMapping("/editUser/updateUser")
     public RedirectView updateStudent(UserDatabean userDatabean) {
         System.out.println("Calling updateUser method.Roleid : " + userDatabean.getUsername());
 
@@ -68,7 +68,7 @@ public class UserController {
 //        }
 
         userRepo.save(user);
-//        System.out.println("Data Updated Successfully.Roleid Presence" + roleid.isPresent());
+        System.out.println("Data Updated Successfully.");
         return new RedirectView("/");
     }
 }
