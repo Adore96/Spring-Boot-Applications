@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<head xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
     <title>DashBoard</title>
@@ -369,7 +370,7 @@
 <div class="modal fade" id="logoutModal">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form action="logout" method="post">
+            <form action="logout" method="POST">
                 <div class="modal-header">
                     <h4 class="modal-title">Logout</h4>
                     <button aria-hidden="true" class="close" data-dismiss="modal" type="button">&times;</button>
@@ -391,7 +392,7 @@
 <div class="modal fade" id="addNewStudentModal">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form action="signup" method="post">
+            <form method="POST" th:action="@{/signup}">
                 <div class="modal-header">
                     <h4 class="modal-title">Add New Student</h4>
                     <button aria-hidden="true" class="close" data-dismiss="modal" type="button"></button>
