@@ -1,13 +1,13 @@
-package com.adore96.SpringJWT;
+package com.adore96.SpringSecurityJWT;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringJwtApplication {
+public class SpringSecurityJwtApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringJwtApplication.class, args);
+		SpringApplication.run(SpringSecurityJwtApplication.class, args);
 	}
 
 }
