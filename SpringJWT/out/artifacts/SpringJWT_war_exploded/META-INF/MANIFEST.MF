@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Created-By: IntelliJ IDEA
+Built-By: kasun_k
+Build-Jdk: 1.8.0_5
+Implementation-Title: SpringJWT
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.adore96
+Main-Class: ${start-class}
+
