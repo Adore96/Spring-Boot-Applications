@@ -50,15 +50,9 @@ public class UserController {
         return "userUpdate";
     }
 
-//    @ResponseBody
-//    public ResponseEntity<Boolean> saveData(HttpServletRequest request,
-//                                            HttpServletResponse response, Model model){
-//        String jsonString = request.getParameter("json");
-//    }
-
-    @PostMapping("/updateUser")
+    @RequestMapping("/editUser/updateUser")
     public RedirectView updateStudent(UserDatabean userDatabean) {
-        System.out.println("Calling updateUser method : " + userDatabean.getUsername());
+        System.out.println("Calling updateUser method.Roleid : " + userDatabean.getUsername());
 
         User user = new User();
 

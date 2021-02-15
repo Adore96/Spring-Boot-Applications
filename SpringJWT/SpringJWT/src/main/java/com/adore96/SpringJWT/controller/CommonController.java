@@ -1,6 +1,7 @@
 package com.adore96.SpringJWT.controller;
 
 import com.adore96.SpringJWT.bean.UserDatabean;
+import com.adore96.SpringJWT.model.Audit;
 import com.adore96.SpringJWT.model.User;
 import com.adore96.SpringJWT.repository.UserRepo;
 import com.adore96.SpringJWT.services.AuditService;
@@ -41,6 +42,7 @@ public class CommonController {
             dBean.setRoleid(user.get(i).getRoleid());
             dBean.setTimeStamp(user.get(i).getTimeStamp());
             dBean.setTelephone(user.get(i).getTelephone());
+
 
 //            Roledetails roledetails = user.get(i).getRoleid();
 //            dBean.setRoleid(roledetails.getRolename());

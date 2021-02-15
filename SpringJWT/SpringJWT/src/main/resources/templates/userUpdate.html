@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
+<head xmlns:th="http://www.thymeleaf.org">
+    <root xmlns:th="http://www.thymeleaf.org"/>
 
     <style>
         body {
@@ -83,7 +84,7 @@
 
 
 <div class="container">
-    <form method="POST" style="border:1px solid #ccc" th:action="@{/updateUser}">
+    <form action="updateUser" method="post" style="border:1px solid #ccc">
         <h3>Update Details</h3>
         <p>Please Update the Details in the form.</p>
         <hr>
@@ -99,9 +100,6 @@
 
         <label><b>User Name</b></label>
         <input name="username" readonly th:value="${userdetails.username}" type="text">
-
-        <label><b>Password</b></label>
-        <input name="password" readonly th:value="${userdetails.password}" type="text">
 
         <label><b>Telephone Number</b></label>
         <input name="telephone" placeholder="Telephone Number" required th:value="${userdetails.telephone}"
