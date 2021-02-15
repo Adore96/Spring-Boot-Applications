@@ -22,4 +22,5 @@ public class AuditDatabean {
     private String lastupdatedtime;
     private String oldvalue;
     private String newvalue;
+
 }
