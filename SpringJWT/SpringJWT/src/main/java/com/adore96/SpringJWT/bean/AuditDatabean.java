@@ -1,5 +1,8 @@
 package com.adore96.SpringJWT.bean;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * @author kasun_k ON 1/26/21
  * @project SpringJWT
