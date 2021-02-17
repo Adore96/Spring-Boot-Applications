@@ -77,4 +77,12 @@ public class UserController {
         System.out.println("Data Updated Successfully.");
         return new RedirectView("/");
     }
+
+    @RequestMapping("/deleteUser/{id}")
+    public RedirectView DeleteStudent(@PathVariable String id) {
+        System.out.println("DeleteStudent Method method in User Controller.");
+        int Id = Integer.valueOf(id);
+        userRepo.deleteById(Id);
+        return new RedirectView("/");
+    }
 }

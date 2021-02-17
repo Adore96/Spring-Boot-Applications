@@ -318,7 +318,7 @@
                 <div class="table-title">
                     <div class="row">
                         <div class="col-sm-4">
-                            <h2>Manage <b>Students</b></h2>
+                            <h2>Manage <b>Users</b></h2>
                         </div>
                         <div class="col-sm-8">
                             <a class="btn btn-warning" data-toggle="modal" href="#"
@@ -352,11 +352,12 @@
                         <td><span th:text="${Databean.fname}"></span></td>
                         <td><span th:text="${Databean.lname}"></span></td>
                         <td><span th:text="${Databean.username}"></span></td>
-                        <td><span th:text="${Databean.timeStamp}"></span></td>
                         <td><span th:text="${Databean.telephone}"></span></td>
+                        <td><span th:text="${Databean.timeStamp}"></span></td>
                         <td><span th:text="${Databean.roleid}"></span></td>
 
                         <td><a th:href="@{/editUser/{id}(id=${Databean.userId})}">Edit</a><br>
+                            <!--                            <a th:href="@{/deleteUser/{id}(id=${Databean.userId})}" data-toggle="modal" data-target="#deleteModal">Delete</a>-->
                             <a th:href="@{/deleteUser/{id}(id=${Databean.userId})}">Delete</a>
                     </tr>
                     </tbody>
@@ -370,7 +371,7 @@
 <div class="modal fade" id="logoutModal">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form action="logout" method="POST">
+            <form th:action="@{/logout}" method="POST">
                 <div class="modal-header">
                     <h4 class="modal-title">Logout</h4>
                     <button aria-hidden="true" class="close" data-dismiss="modal" type="button">&times;</button>
@@ -434,5 +435,28 @@
         </div>
     </div>
 </div>
+
+<!-- Delete Modal -->
+<div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="deleteModal" role="dialog"
+     tabindex="-1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-dismiss="modal" type="button">Close</button>
+                <button class="btn btn-primary" type="submit">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>

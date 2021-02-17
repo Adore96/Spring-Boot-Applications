@@ -25,8 +25,13 @@ public class UserService {
         user.setUsername(userDatabean.getUsername());
         user.setUsername(userDatabean.getUsername());
         user.setPassword(userDatabean.getPassword());
+        user.setTelephone(userDatabean.getTelephone());
         user.setRoleid(userDatabean.getRoleid());
 
         userRepo.save(user);
+    }
+
+    public void deleteUser(UserDatabean userDatabean){
+
     }
 }

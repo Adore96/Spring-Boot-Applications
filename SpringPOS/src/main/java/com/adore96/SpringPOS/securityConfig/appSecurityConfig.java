@@ -11,7 +11,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 /**
- * @author kalharaperera ON 12/22/20
+ * @author kasun_k ON 12/22/20
  * @project SpringPOS
  */
 
@@ -33,7 +33,7 @@ public class appSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .csrf().disable()
-
+                .httpBasic().disable()
                 .authorizeRequests()
                 .antMatchers("/").permitAll()
                 .antMatchers("/user/signup").permitAll()
