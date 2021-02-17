@@ -1,8 +1,8 @@
 package com.adore96.SpringPOS.services;
 
-import com.adore96.SpringJWT.bean.UserDatabean;
-import com.adore96.SpringJWT.model.User;
-import com.adore96.SpringJWT.repository.UserRepo;
+import com.adore96.SpringPOS.bean.UserDatabean;
+import com.adore96.SpringPOS.model.User;
+import com.adore96.SpringPOS.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 

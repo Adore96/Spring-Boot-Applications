@@ -1,9 +1,9 @@
 package com.adore96.SpringPOS.controller;
 
-import com.adore96.SpringJWT.bean.UserDatabean;
-import com.adore96.SpringJWT.model.User;
-import com.adore96.SpringJWT.repository.UserRepo;
-import com.adore96.SpringJWT.services.AuditService;
+import com.adore96.SpringPOS.bean.UserDatabean;
+import com.adore96.SpringPOS.model.User;
+import com.adore96.SpringPOS.repository.UserRepo;
+import com.adore96.SpringPOS.services.AuditService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +14,7 @@ import java.util.List;
 
 /**
  * @author kalharaperera ON 12/22/20
- * @project SpringJWT
+ * @project SpringPOS
  */
 
 @Controller
@@ -28,6 +28,7 @@ public class CommonController {
 
     @RequestMapping("/")
     public String main(Model model) {
+
         System.out.println("-------");
         List<User> user = userRepo.findAll();
         List<UserDatabean> Databean = new ArrayList<>();

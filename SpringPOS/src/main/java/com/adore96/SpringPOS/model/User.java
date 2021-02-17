@@ -1,11 +1,12 @@
 package com.adore96.SpringPOS.model;
 
+import javax.persistence.Id;
+
 import javax.persistence.*;
-import java.sql.Timestamp;
 
 /**
  * @author kalharaperera ON 12/22/20
- * @project SpringJWT
+ * @project SpringPOS
  */
 
 @Entity

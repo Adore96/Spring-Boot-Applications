@@ -2,7 +2,7 @@ package com.adore96.SpringPOS.bean;
 
 /**
  * @author kasun_k ON 12/22/20
- * @project SpringJWT
+ * @project SpringPOS
  */
 
 public class UserDatabean {

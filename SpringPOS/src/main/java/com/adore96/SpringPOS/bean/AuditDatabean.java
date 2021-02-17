@@ -2,7 +2,7 @@ package com.adore96.SpringPOS.bean;
 
 /**
  * @author kasun_k ON 1/26/21
- * @project SpringJWT
+ * @project SpringPOS
  */
 
 public class AuditDatabean {

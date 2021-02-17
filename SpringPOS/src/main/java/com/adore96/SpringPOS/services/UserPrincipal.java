@@ -1,6 +1,6 @@
 package com.adore96.SpringPOS.services;
 
-import com.adore96.SpringJWT.model.User;
+import com.adore96.SpringPOS.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -9,7 +9,7 @@ import java.util.Collection;
 
 /**
  * @author kasun_k ON 12/22/20
- * @project SpringJWT
+ * @project SpringPOS
  */
 
 public class UserPrincipal implements UserDetails {
